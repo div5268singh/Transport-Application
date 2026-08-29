@@ -1,0 +1,18 @@
+<section class="bg-slate-900 py-16 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold">About Us</h1>
+    <p class="mt-3 text-sm text-slate-200">Home / Pages / About</p>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+  <h2 class="text-sm font-bold uppercase tracking-widest text-blue-600">About {{ appName }}</h2>
+  <p class="mt-4 text-base leading-7 text-slate-700">{{ overview }}</p>
+
+  <h3 class="mt-10 text-2xl font-bold text-slate-900">Operational Commitments</h3>
+  <ul class="mt-5 space-y-3">
+    @for (point of operationalFootprint; track point) {
+      <li class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm">{{ point }}</li>
+    }
+  </ul>
+</section>

@@ -1,0 +1,16 @@
+<article class="relative overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm">
+  <img [src]="item.imagePath" [alt]="item.title" class="h-64 w-full object-cover" />
+  <div class="absolute inset-0 bg-slate-950/50"></div>
+  <div class="absolute inset-0 flex flex-col justify-center p-6 sm:p-10">
+    <h3 class="text-2xl font-bold text-white">{{ item.title }}</h3>
+    <p class="mt-3 max-w-xl text-sm text-slate-100 sm:text-base">{{ item.subtitle }}</p>
+    <div class="mt-6">
+      <a
+        routerLink="/contact"
+        class="inline-flex rounded bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600"
+      >
+        {{ item.ctaText }}
+      </a>
+    </div>
+  </div>
+</article>

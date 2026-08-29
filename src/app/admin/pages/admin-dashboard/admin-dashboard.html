@@ -1,0 +1,336 @@
+<section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+  <header class="rounded-2xl border border-slate-800 bg-slate-900 p-8">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h2 class="text-3xl font-bold text-white">{{ appConfig.appName }} Admin Dashboard</h2>
+        <p class="mt-2 text-slate-300">Manage all website content from this panel.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button type="button" (click)="copyAdminUrl()" class="rounded-md border border-slate-700 px-4 py-2 text-sm text-slate-100 hover:bg-slate-800">Copy Admin URL</button>
+        <button type="button" (click)="logout()" class="rounded-md border border-slate-700 px-4 py-2 text-sm text-slate-100 hover:bg-slate-800">Logout</button>
+      </div>
+    </div>
+    <p class="mt-4 rounded-md bg-slate-950 px-4 py-3 text-sm text-cyan-300">Admin is hidden from public UI. Open directly: <strong>/admin/login</strong></p>
+  </header>
+
+  @if (previewBanner) {
+    <section class="mt-8 overflow-hidden rounded-2xl border border-slate-800">
+      <div class="relative h-[360px] bg-cover bg-center" [style.background-image]="'url(' + previewBanner.imagePath + ')'">
+        <div class="absolute inset-0 bg-slate-950/55"></div>
+        <div class="absolute inset-0 flex items-center p-8">
+          <div class="max-w-3xl text-white">
+            <p class="text-sm font-semibold uppercase tracking-widest text-blue-200">Transportation Service Providers</p>
+            <h3 class="mt-3 text-3xl font-bold sm:text-4xl">{{ heroHeading || previewBanner.title }}</h3>
+            <p class="mt-3 text-sm text-slate-200 sm:text-base">{{ heroSubheading || previewBanner.subtitle }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  <section class="mt-8 grid gap-6 lg:grid-cols-2">
+    <article class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 class="text-xl font-semibold text-white">Company Details + Email Settings</h3>
+      <div class="mt-4 space-y-3">
+        <input [(ngModel)]="siteName" type="text" placeholder="Application name" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+        <input [(ngModel)]="phone" type="text" placeholder="Phone number" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+
+        <div class="rounded-md border border-blue-700 bg-blue-950/30 p-3">
+          <p class="text-xs font-semibold uppercase tracking-wide text-blue-300">Display Email (Shown on Website)</p>
+          <p class="mb-2 text-xs text-blue-200">This email appears on Contact page and footer for public viewing.</p>
+          <input [(ngModel)]="displayEmail" type="email" placeholder="e.g. info@company.com" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+        </div>
+
+        <div class="rounded-md border border-emerald-700 bg-emerald-950/30 p-3">
+          <p class="text-xs font-semibold uppercase tracking-wide text-emerald-300">Lead Email (Receives Contact Form Leads)</p>
+          <p class="mb-2 text-xs text-emerald-200">This email gets client enquiry details when the contact form is submitted.</p>
+          <input [(ngModel)]="leadEmail" type="email" placeholder="e.g. sales@company.com" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+        </div>
+
+        <textarea [(ngModel)]="address" rows="3" placeholder="Office address" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+      </div>
+      <button type="button" (click)="saveSiteBasics()" class="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">Save Company & Email Settings</button>
+    </article>
+
+    <article class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 class="text-xl font-semibold text-white">Homepage Main Content</h3>
+      <div class="mt-4 space-y-3">
+        <input [(ngModel)]="heroHeading" type="text" placeholder="Main heading" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+        <textarea [(ngModel)]="heroSubheading" rows="4" placeholder="Main subheading content" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+      </div>
+      <button type="button" (click)="saveHomepageContent()" class="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">Save Homepage Content</button>
+    </article>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h3 class="text-xl font-semibold text-white">Media Manager (Type + Category)</h3>
+    <p class="mt-2 text-xs text-slate-400">Add image and video content from one place using type and category.</p>
+    <div class="mt-4 grid gap-4 md:grid-cols-2">
+      <label class="block">
+        <span class="mb-2 block text-sm text-slate-200">Media Type</span>
+        <select [(ngModel)]="mediaType" (ngModelChange)="onMediaTypeChange()" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-white focus:border-cyan-400 focus:outline-none">
+          <option value="image">Image</option>
+          <option value="video">Video</option>
+        </select>
+      </label>
+      <label class="block">
+        <span class="mb-2 block text-sm text-slate-200">Category</span>
+        <select [(ngModel)]="mediaCategory" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-white focus:border-cyan-400 focus:outline-none">
+          @if (mediaType === 'image') {
+            <option value="banner">Banner Image</option>
+            <option value="service">Service Photo</option>
+            <option value="client">Client Logo</option>
+          } @else {
+            <option value="video">Video</option>
+          }
+        </select>
+      </label>
+      <input [(ngModel)]="mediaTitle" type="text" placeholder="Media title" class="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+      <input [(ngModel)]="mediaPath" type="text" [placeholder]="mediaType === 'image' ? 'Image URL/path (optional if uploading file)' : 'Video URL/path (optional if uploading file)'" class="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+      <textarea [(ngModel)]="mediaDescription" rows="3" placeholder="Media description" class="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none md:col-span-2"></textarea>
+      @if (mediaCategory === 'banner') {
+        <input [(ngModel)]="mediaCtaText" type="text" placeholder="Banner CTA text (optional)" class="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none md:col-span-2" />
+      }
+      @if (mediaCategory === 'video') {
+        <input [(ngModel)]="mediaPosterPath" type="text" placeholder="Video poster image path (optional)" class="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none md:col-span-2" />
+      }
+      <input type="file" [attr.accept]="mediaType === 'image' ? 'image/*' : 'video/*'" (change)="onMediaFileSelected($event)" class="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-200 md:col-span-2" />
+    </div>
+    <button type="button" (click)="addMediaByTypeAndCategory()" class="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">Add Media</button>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h3 class="text-xl font-semibold text-white">Banner Management</h3>
+    <p class="mt-2 text-xs text-slate-400">Use Media Manager above with Type: Image and Category: Banner to add new banners.</p>
+
+    <div class="mt-5 overflow-x-auto">
+      <table class="min-w-full divide-y divide-slate-800 text-sm text-slate-200">
+        <thead><tr class="text-left text-slate-400"><th class="px-3 py-2">Banner</th><th class="px-3 py-2">Image</th><th class="px-3 py-2">Actions</th></tr></thead>
+        <tbody class="divide-y divide-slate-800">
+          @for (banner of banners; track banner.title; let i = $index) {
+            <tr>
+              <td class="px-3 py-2">{{ banner.title }}</td>
+              <td class="px-3 py-2 text-cyan-300">{{ banner.imagePath }}</td>
+              <td class="px-3 py-2">
+                <button type="button" (click)="setPreviewBanner(i)" class="mr-2 rounded border border-blue-600 px-3 py-1 text-xs text-blue-300 hover:bg-blue-900/40">Preview</button>
+                <button type="button" (click)="startBannerEdit(i)" class="mr-2 rounded border border-blue-600 px-3 py-1 text-xs text-blue-300 hover:bg-blue-900/40">Edit</button>
+                <button type="button" (click)="removeBanner(i)" class="rounded border border-rose-600 px-3 py-1 text-xs text-rose-300 hover:bg-rose-900/40">Remove</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    @if (editingBannerIndex >= 0) {
+      <div class="mt-4 rounded border border-slate-700 bg-slate-950 p-3">
+        <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-cyan-300">Editing Selected Banner</p>
+        <div class="grid gap-3 md:grid-cols-2">
+          <input [(ngModel)]="editingBannerTitle" type="text" placeholder="Banner title" class="rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+          <input [(ngModel)]="editingBannerCtaText" type="text" placeholder="Banner CTA text" class="rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+          <textarea [(ngModel)]="editingBannerSubtitle" rows="3" placeholder="Banner subtitle" class="rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none md:col-span-2"></textarea>
+          <input [(ngModel)]="editingBannerImagePath" type="text" placeholder="Banner image path" class="rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none md:col-span-2" />
+          <div class="flex gap-2 md:col-span-2">
+            <button type="button" (click)="saveBannerEdit()" class="rounded bg-cyan-400 px-3 py-2 text-xs font-semibold text-slate-950 hover:bg-cyan-300">Save Banner Changes</button>
+            <button type="button" (click)="cancelBannerEdit()" class="rounded border border-slate-600 px-3 py-2 text-xs text-slate-200 hover:bg-slate-800">Cancel</button>
+          </div>
+        </div>
+      </div>
+    }
+  </section>
+
+  <section class="mt-8 grid gap-6 lg:grid-cols-2">
+    <article class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 class="text-xl font-semibold text-white">Services (Photo + Description)</h3>
+      <p class="mt-2 text-xs text-slate-400">Use Media Manager above with Type: Image and Category: Service Photo to add new services.</p>
+      <ul class="mt-4 space-y-2 text-sm text-slate-200">
+        @for (service of services; track service.title; let i = $index) {
+          <li class="flex items-start justify-between gap-3 rounded border border-slate-700 bg-slate-950 px-3 py-2">
+            <div><p class="font-semibold">{{ service.title }}</p><p class="text-xs text-slate-400">{{ service.summary }}</p></div>
+            <div class="flex gap-2">
+              <button type="button" (click)="startServiceEdit(i)" class="rounded border border-blue-600 px-2 py-1 text-xs text-blue-300 hover:bg-blue-900/40">Edit</button>
+              <button type="button" (click)="removeService(i)" class="rounded border border-rose-600 px-2 py-1 text-xs text-rose-300 hover:bg-rose-900/40">Remove</button>
+            </div>
+          </li>
+        }
+      </ul>
+      @if (editingServiceIndex >= 0) {
+        <div class="mt-4 rounded border border-slate-700 bg-slate-950 p-3">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-cyan-300">Editing Selected Service</p>
+          <div class="space-y-2">
+            <input [(ngModel)]="editingServiceTitle" type="text" placeholder="Service title" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+            <textarea [(ngModel)]="editingServiceSummary" rows="3" placeholder="Service description" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+            <input [(ngModel)]="editingServiceImagePath" type="text" placeholder="Service image path" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+            <div class="flex gap-2">
+              <button type="button" (click)="saveServiceEdit()" class="rounded bg-cyan-400 px-3 py-2 text-xs font-semibold text-slate-950 hover:bg-cyan-300">Save Service Changes</button>
+              <button type="button" (click)="cancelServiceEdit()" class="rounded border border-slate-600 px-3 py-2 text-xs text-slate-200 hover:bg-slate-800">Cancel</button>
+            </div>
+          </div>
+        </div>
+      }
+    </article>
+
+    <article class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 class="text-xl font-semibold text-white">Videos (Title + Description)</h3>
+      <p class="mt-2 text-xs text-slate-400">Use Media Manager above with Type: Video and Category: Video to add new videos.</p>
+      <ul class="mt-4 space-y-2 text-sm text-slate-200">
+        @for (video of videos; track video.title; let i = $index) {
+          <li class="flex items-start justify-between gap-3 rounded border border-slate-700 bg-slate-950 px-3 py-2">
+            <div>
+              <p class="font-semibold">{{ video.title }}</p>
+              <p class="text-xs text-slate-400">{{ video.summary }}</p>
+              <p class="text-xs text-cyan-300">{{ video.videoPath }}</p>
+            </div>
+            <div class="flex gap-2">
+              <button type="button" (click)="startVideoEdit(i)" class="rounded border border-blue-600 px-2 py-1 text-xs text-blue-300 hover:bg-blue-900/40">Edit</button>
+              <button type="button" (click)="removeVideo(i)" class="rounded border border-rose-600 px-2 py-1 text-xs text-rose-300 hover:bg-rose-900/40">Remove</button>
+            </div>
+          </li>
+        }
+      </ul>
+
+      @if (editingVideoIndex >= 0) {
+        <div class="mt-4 rounded border border-slate-700 bg-slate-950 p-3">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-cyan-300">Editing Selected Video</p>
+          <div class="space-y-2">
+            <input [(ngModel)]="editingVideoTitle" type="text" placeholder="Video title" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+            <textarea [(ngModel)]="editingVideoSummary" rows="3" placeholder="Video description" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+            <input [(ngModel)]="editingVideoPath" type="text" placeholder="Video URL/path" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+            <input [(ngModel)]="editingVideoPosterPath" type="text" placeholder="Poster path (optional)" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+            <div class="flex gap-2">
+              <button type="button" (click)="saveVideoEdit()" class="rounded bg-cyan-400 px-3 py-2 text-xs font-semibold text-slate-950 hover:bg-cyan-300">Save Video Changes</button>
+              <button type="button" (click)="cancelVideoEdit()" class="rounded border border-slate-600 px-3 py-2 text-xs text-slate-200 hover:bg-slate-800">Cancel</button>
+            </div>
+          </div>
+        </div>
+      }
+    </article>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h3 class="text-xl font-semibold text-white">Contact Form Leads (Client Details)</h3>
+    <div class="mt-4 overflow-x-auto">
+      <table class="min-w-full divide-y divide-slate-800 text-sm text-slate-200">
+        <thead><tr class="text-left text-slate-400"><th class="px-3 py-2">Name</th><th class="px-3 py-2">Phone</th><th class="px-3 py-2">Material</th><th class="px-3 py-2">Route</th><th class="px-3 py-2">Weight</th><th class="px-3 py-2">Time</th></tr></thead>
+        <tbody class="divide-y divide-slate-800">
+          @for (lead of leadRequests; track lead.submittedAt) {
+            <tr>
+              <td class="px-3 py-2">{{ lead.userName }}<div class="text-xs text-slate-400">{{ lead.email }}</div></td>
+              <td class="px-3 py-2">{{ lead.phone }}</td>
+              <td class="px-3 py-2">{{ lead.materialType }}</td>
+              <td class="px-3 py-2">{{ lead.origin }} → {{ lead.destination }}</td>
+              <td class="px-3 py-2">{{ lead.weight }}</td>
+              <td class="px-3 py-2">{{ lead.submittedAt | date: 'medium' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h3 class="text-xl font-semibold text-white">Client Management</h3>
+    <p class="mt-2 text-xs text-slate-400">Use Media Manager above with Type: Image and Category: Client Logo to add new clients with logo.</p>
+    <div class="mt-5 overflow-x-auto">
+      <table class="min-w-full divide-y divide-slate-800 text-sm text-slate-200">
+        <thead><tr class="text-left text-slate-400"><th class="px-3 py-2">Client</th><th class="px-3 py-2">Logo Path</th><th class="px-3 py-2">Action</th></tr></thead>
+        <tbody class="divide-y divide-slate-800">
+          @for (client of clients; track client.name; let i = $index) {
+            <tr>
+              <td class="px-3 py-2">{{ client.name }}</td>
+              <td class="px-3 py-2 text-cyan-300">{{ client.logoPath }}</td>
+              <td class="px-3 py-2">
+                <button type="button" (click)="startClientEdit(i)" class="mr-2 rounded border border-blue-600 px-3 py-1 text-xs text-blue-300 hover:bg-blue-900/40">Edit</button>
+                <button type="button" (click)="removeClient(i)" class="rounded border border-rose-600 px-3 py-1 text-xs text-rose-300 hover:bg-rose-900/40">Remove</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    @if (editingClientIndex >= 0) {
+      <div class="mt-4 rounded border border-slate-700 bg-slate-950 p-3">
+        <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-cyan-300">Editing Selected Client</p>
+        <div class="grid gap-3 md:grid-cols-2">
+          <input [(ngModel)]="editingClientName" type="text" placeholder="Client name" class="rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+          <input [(ngModel)]="editingClientLogoPath" type="text" placeholder="Client logo path" class="rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+          <div class="flex gap-2 md:col-span-2">
+            <button type="button" (click)="saveClientEdit()" class="rounded bg-cyan-400 px-3 py-2 text-xs font-semibold text-slate-950 hover:bg-cyan-300">Save Client Changes</button>
+            <button type="button" (click)="cancelClientEdit()" class="rounded border border-slate-600 px-3 py-2 text-xs text-slate-200 hover:bg-slate-800">Cancel</button>
+          </div>
+        </div>
+      </div>
+    }
+  </section>
+
+  <section class="mt-8 grid gap-6 lg:grid-cols-2">
+    <article class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 class="text-xl font-semibold text-white">Features Management</h3>
+      <div class="mt-4 space-y-3">
+        <input [(ngModel)]="newFeatureTitle" type="text" placeholder="Feature title" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+        <textarea [(ngModel)]="newFeatureSummary" rows="3" placeholder="Feature summary" class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+      </div>
+      <button type="button" (click)="addFeature()" class="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">Add Feature</button>
+      <ul class="mt-4 space-y-2 text-sm text-slate-200">
+        @for (feature of features; track feature.title; let i = $index) {
+          <li class="flex items-start justify-between gap-3 rounded border border-slate-700 bg-slate-950 px-3 py-2">
+            <div><p class="font-semibold">{{ feature.title }}</p><p class="text-xs text-slate-400">{{ feature.summary }}</p></div>
+            <div class="flex gap-2">
+              <button type="button" (click)="startFeatureEdit(i)" class="rounded border border-blue-600 px-2 py-1 text-xs text-blue-300 hover:bg-blue-900/40">Edit</button>
+              <button type="button" (click)="removeFeature(i)" class="rounded border border-rose-600 px-2 py-1 text-xs text-rose-300 hover:bg-rose-900/40">Remove</button>
+            </div>
+          </li>
+        }
+      </ul>
+      @if (editingFeatureIndex >= 0) {
+        <div class="mt-4 rounded border border-slate-700 bg-slate-950 p-3">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-cyan-300">Editing Selected Feature</p>
+          <div class="space-y-2">
+            <input [(ngModel)]="editingFeatureTitle" type="text" placeholder="Feature title" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none" />
+            <textarea [(ngModel)]="editingFeatureSummary" rows="3" placeholder="Feature summary" class="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+            <div class="flex gap-2">
+              <button type="button" (click)="saveFeatureEdit()" class="rounded bg-cyan-400 px-3 py-2 text-xs font-semibold text-slate-950 hover:bg-cyan-300">Save Feature Changes</button>
+              <button type="button" (click)="cancelFeatureEdit()" class="rounded border border-slate-600 px-3 py-2 text-xs text-slate-200 hover:bg-slate-800">Cancel</button>
+            </div>
+          </div>
+        </div>
+      }
+    </article>
+
+    <article class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 class="text-xl font-semibold text-white">About + SEO</h3>
+      <textarea [(ngModel)]="aboutOverview" rows="6" placeholder="About company overview" class="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+      <button type="button" (click)="saveAboutContent()" class="mt-3 rounded-md bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">Save About Content</button>
+      <textarea [(ngModel)]="seoDescription" rows="3" placeholder="Meta description" class="mt-4 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+      <textarea [(ngModel)]="seoKeywords" rows="5" placeholder="Keywords separated by commas" class="mt-3 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+      <button type="button" (click)="saveSeoContent()" class="mt-3 rounded-md bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">Save SEO</button>
+      <button type="button" (click)="resetContentToDefault()" class="mt-3 ml-2 rounded-md border border-slate-700 px-4 py-2 text-sm text-slate-100 hover:bg-slate-800">Reset to Default</button>
+    </article>
+  </section>
+
+  @if (uploadStatus) {
+    <p class="mt-6 rounded-md border border-emerald-700 bg-emerald-900/40 px-4 py-3 text-sm text-emerald-100">{{ uploadStatus }}</p>
+  }
+
+  @if (contentStatus) {
+    <p class="mt-4 rounded-md border border-blue-700 bg-blue-900/40 px-4 py-3 text-sm text-blue-100">{{ contentStatus }}</p>
+  }
+
+  <section class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h3 class="text-xl font-semibold text-white">Uploaded Files</h3>
+    <div class="mt-4 overflow-x-auto">
+      <table class="min-w-full divide-y divide-slate-800 text-sm text-slate-200">
+        <thead><tr class="text-left text-slate-400"><th class="px-3 py-2">File Name</th><th class="px-3 py-2">Category</th><th class="px-3 py-2">Simulated Path</th><th class="px-3 py-2">Uploaded At</th></tr></thead>
+        <tbody class="divide-y divide-slate-800">
+          @for (asset of uploadedAssets; track asset.id) {
+            <tr>
+              <td class="px-3 py-2">{{ asset.fileName }}</td>
+              <td class="px-3 py-2 uppercase">{{ asset.category }}</td>
+              <td class="px-3 py-2 text-cyan-300">{{ asset.simulatedPath }}</td>
+              <td class="px-3 py-2">{{ asset.uploadedAt | date: 'medium' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</section>

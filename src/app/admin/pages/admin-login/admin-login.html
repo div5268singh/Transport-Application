@@ -1,0 +1,31 @@
+<section class="mx-auto flex max-w-xl px-4 py-14 sm:px-6 lg:px-8">
+  <article class="w-full rounded-2xl border border-slate-800 bg-slate-900 p-8">
+    <h2 class="text-2xl font-semibold text-white">Admin Login</h2>
+    <p class="mt-2 text-sm text-slate-300">Enter your dashboard password to manage media uploads.</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-6 space-y-4">
+      <label class="block">
+        <span class="mb-2 block text-sm text-slate-200">Password</span>
+        <input
+          type="password"
+          formControlName="password"
+          class="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-white focus:border-cyan-400 focus:outline-none"
+        />
+      </label>
+
+      <button
+        type="submit"
+        [disabled]="isSubmitting"
+        class="w-full rounded-md bg-cyan-400 px-5 py-2 font-semibold text-slate-950 transition hover:bg-cyan-300"
+      >
+        {{ isSubmitting ? 'Signing In...' : 'Sign In' }}
+      </button>
+    </form>
+
+    @if (loginError) {
+      <p class="mt-4 rounded-md border border-rose-700 bg-rose-900/40 px-4 py-3 text-sm text-rose-100">
+        {{ loginError }}
+      </p>
+    }
+  </article>
+</section>
