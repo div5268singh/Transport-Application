@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { VideoContent } from '../../../core/models/app-config.model';
+<<<<<<< HEAD
 import { AppConfig } from '../../../core/services/app-config';
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
 @Component({
   selector: 'app-video-player',
@@ -12,6 +15,7 @@ import { AppConfig } from '../../../core/services/app-config';
 export class VideoPlayer {
   @Input({ required: true }) item!: VideoContent;
 
+<<<<<<< HEAD
   constructor(
     private readonly sanitizer: DomSanitizer,
     private readonly appConfig: AppConfig,
@@ -20,6 +24,9 @@ export class VideoPlayer {
   protected content(key: string): string {
     return this.appConfig.getConfig().content[key] ?? '';
   }
+=======
+  constructor(private readonly sanitizer: DomSanitizer) {}
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
   protected get embedVideoUrl(): SafeResourceUrl | null {
     const rawVideoPath = this.item.videoPath.trim();

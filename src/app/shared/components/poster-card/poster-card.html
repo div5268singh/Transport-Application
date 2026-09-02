@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <article class="service-card">
   <div class="service-card__media">
     <img [src]="item.imagePath" [alt]="item.title" />
@@ -7,5 +8,12 @@
     <h3>{{ item.title }}</h3>
     <p>{{ item.summary }}</p>
     <a routerLink="/services" [attr.aria-label]="content('shared.posterAriaPrefix') + ' ' + item.title">{{ content('shared.posterAction') }} <span aria-hidden="true">&rarr;</span></a>
+=======
+<article class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+  <img [src]="item.imagePath" [alt]="item.title" class="h-44 w-full object-cover" />
+  <div class="p-4">
+    <h3 class="text-lg font-semibold text-slate-900">{{ item.title }}</h3>
+    <p class="mt-2 text-sm text-slate-600">{{ item.summary }}</p>
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   </div>
 </article>

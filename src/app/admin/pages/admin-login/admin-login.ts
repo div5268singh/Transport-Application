@@ -16,7 +16,10 @@ export class AdminLogin implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
 
   protected readonly form = this.formBuilder.nonNullable.group({
+<<<<<<< HEAD
     username: ['admin', [Validators.required]],
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     password: ['', [Validators.required]],
   });
 
@@ -49,6 +52,7 @@ export class AdminLogin implements OnInit {
     this.isSubmitting = true;
 
     try {
+<<<<<<< HEAD
       const isAuthenticated = await this.adminAuth.login(
         this.form.controls.username.getRawValue(),
         this.form.controls.password.getRawValue(),
@@ -56,6 +60,12 @@ export class AdminLogin implements OnInit {
 
       if (!isAuthenticated) {
         this.loginError = 'Invalid username or password. Please try again.';
+=======
+      const isAuthenticated = await this.adminAuth.login(this.form.controls.password.getRawValue());
+
+      if (!isAuthenticated) {
+        this.loginError = 'Invalid password. Please try again.';
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         return;
       }
 

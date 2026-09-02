@@ -3,9 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { adminAuthGuard } from './guards/admin-auth-guard';
 import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
 import { AdminLogin } from './pages/admin-login/admin-login';
+<<<<<<< HEAD
 import { ConsignmentList } from './pages/consignment-list/consignment-list';
 import { ConsignmentCreate } from './pages/consignment-create/consignment-create';
 import { ConsignmentDetail } from './pages/consignment-detail/consignment-detail';
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
 const routes: Routes = [
   {
@@ -17,6 +20,7 @@ const routes: Routes = [
     component: AdminDashboard,
     canActivate: [adminAuthGuard],
   },
+<<<<<<< HEAD
   {
     path: 'consignments',
     component: ConsignmentList,
@@ -32,6 +36,8 @@ const routes: Routes = [
     component: ConsignmentDetail,
     canActivate: [adminAuthGuard],
   },
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 ];
 
 @NgModule({

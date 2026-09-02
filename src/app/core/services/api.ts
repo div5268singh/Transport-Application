@@ -1,21 +1,32 @@
 import { Injectable } from '@angular/core';
 import { AppConfig } from './app-config';
 import { StorageSimulator } from './storage-simulator';
+<<<<<<< HEAD
 import { firstValueFrom } from 'rxjs';
 import { BannerContent, PosterContent, VideoContent } from '../models/app-config.model';
 import { LeadRequest, UploadedAsset, UploadedAssetCategory } from '../models/transport.model';
 import { ContentService } from './content';
+=======
+import { BannerContent, PosterContent, VideoContent } from '../models/app-config.model';
+import { LeadRequest, UploadedAsset, UploadedAssetCategory } from '../models/transport.model';
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
 @Injectable({
   providedIn: 'root',
 })
 export class Api {
+<<<<<<< HEAD
   private uploadedAssets: UploadedAsset[] = [];
 
   constructor(
     private readonly appConfig: AppConfig,
     private readonly storageSimulator: StorageSimulator,
     private readonly contentService: ContentService,
+=======
+  constructor(
+    private readonly appConfig: AppConfig,
+    private readonly storageSimulator: StorageSimulator,
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   ) {}
 
   submitLeadRequest(leadRequest: Omit<LeadRequest, 'submittedAt'>): void {
@@ -43,6 +54,7 @@ export class Api {
     return `mailto:${destinationEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
+<<<<<<< HEAD
   async uploadAsset(file: File, category: UploadedAssetCategory): Promise<UploadedAsset> {
     const response = await firstValueFrom(this.contentService.uploadMedia(file));
     const uploadedAsset: UploadedAsset = {
@@ -56,6 +68,10 @@ export class Api {
     };
     this.uploadedAssets = [uploadedAsset, ...this.uploadedAssets];
     return uploadedAsset;
+=======
+  uploadAsset(file: File, category: UploadedAssetCategory): Promise<UploadedAsset> {
+    return this.storageSimulator.saveAsset(file, category);
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   }
 
   getBannerContent(): BannerContent[] {
@@ -71,7 +87,11 @@ export class Api {
   }
 
   getUploadedAssets(): UploadedAsset[] {
+<<<<<<< HEAD
     return this.uploadedAssets;
+=======
+    return this.storageSimulator.listAssets();
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   }
 
   getLeadRequests(): LeadRequest[] {
