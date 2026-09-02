@@ -1,0 +1,19 @@
+<figure class="video-card">
+  @if (embedVideoUrl) {
+    <iframe
+      class="video-card__media"
+      [src]="embedVideoUrl"
+      [title]="'Embedded video player'"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  } @else {
+    <video class="video-card__media" controls [src]="item.videoPath" [attr.poster]="item.posterPath || null">
+      {{ content('shared.videoFallback') }}
+    </video>
+  }
+  <figcaption>
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.summary }}</p>
+  </figcaption>
+</figure>

@@ -1,0 +1,121 @@
+<section class="tracking-hero">
+  <div class="tracking-width tracking-hero__inner">
+    <div>
+      <p class="eyebrow eyebrow--light">Live consignment status</p>
+      <h1>Track the road ahead.</h1>
+      <p>{{ content('tracking.intro') }}</p>
+    </div>
+
+    <form class="tracking-form" (submit)="$event.preventDefault(); trackShipment()">
+      <label for="consignment-number">Consignment number</label>
+      <div>
+        <input
+          id="consignment-number"
+          type="text"
+          [formControl]="consignmentNumber"
+          [placeholder]="'e.g. SRL-2026-0012'"
+          autocomplete="off"
+        />
+        <button type="submit" [disabled]="isLoading">
+          {{ isLoading ? content('tracking.checkingButton') : content('tracking.submitButton') }}
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+      @if (consignmentNumber.touched && consignmentNumber.invalid) {
+        <small>{{ content('tracking.requiredMessage') }}</small>
+      }
+    </form>
+  </div>
+</section>
+
+<section class="tracking-results">
+  <div class="tracking-width">
+    @if (isLoading) {
+      <div class="tracking-state" aria-live="polite">
+        <span class="loader"></span>
+        <p>{{ content('tracking.loadingMessage') }}</p>
+      </div>
+    }
+
+    @if (errorMessage) {
+      <div class="tracking-state tracking-state--error" role="alert">
+        <span>!</span>
+        <div>
+          <h2>We could not locate that shipment</h2>
+          <p>{{ errorMessage }}</p>
+        </div>
+      </div>
+    }
+
+    @if (shipment) {
+      <article class="shipment-summary">
+        <header>
+          <div>
+            <p class="eyebrow">Consignment</p>
+            <h2>{{ shipment.consignmentNumber }}</h2>
+          </div>
+          <span class="status-badge">{{ statusLabel(shipment.status) }}</span>
+        </header>
+
+        <div class="progress-track" [attr.aria-label]="'Shipment progress'">
+          @for (status of statuses; track status) {
+            <div [class.is-complete]="isStatusComplete(status)">
+              <span></span>
+              <strong>{{ statusLabel(status) }}</strong>
+            </div>
+          }
+        </div>
+
+        <div class="shipment-facts">
+          <section>
+            <span>Sender</span>
+            <strong>{{ shipment.senderCompanyName }}</strong>
+          </section>
+          <section>
+            <span>Receiver</span>
+            <strong>{{ shipment.receiverCompanyName }}</strong>
+          </section>
+          <section>
+            <span>Vehicle</span>
+            <strong>{{ shipment.vehicleNumber || content('tracking.assignmentPending') }}</strong>
+          </section>
+          <section>
+            <span>Driver</span>
+            <strong>{{ shipment.driverName || content('tracking.assignmentPending') }}</strong>
+          </section>
+        </div>
+      </article>
+
+      <section class="history">
+        <div class="history__heading">
+          <p class="eyebrow">Movement log</p>
+          <h2>Shipment journey</h2>
+        </div>
+        @if (shipment.history.length > 0) {
+          <ol>
+            @for (update of shipment.history; track update.updatedAt; let isLast = $last) {
+              <li [class.is-latest]="isLast">
+                <span class="history__marker"></span>
+                <div>
+                  <time [attr.datetime]="update.updatedAt">{{ update.updatedAt | date: 'dd MMM yyyy, h:mm a' }}</time>
+                  <h3>{{ update.cityName }}</h3>
+                  <p>{{ update.areaName }}</p>
+                </div>
+              </li>
+            }
+          </ol>
+        } @else {
+          <p class="history__empty">{{ content('tracking.emptyHistory') }}</p>
+        }
+      </section>
+    }
+
+    @if (!shipment && !isLoading && !errorMessage) {
+      <div class="tracking-empty">
+        <span>{{ content('tracking.emptyMonogram') }}</span>
+        <h2>Your shipment journey will appear here.</h2>
+        <p>{{ content('tracking.emptyBody') }}</p>
+      </div>
+    }
+  </div>
+</section>

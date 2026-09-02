@@ -1,0 +1,80 @@
+<section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="mb-6 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <img src="assets/brand/logo-icon.svg" alt="New Satna Road Lines" class="h-10 w-10" />
+      <div>
+        <h1 class="text-2xl font-bold text-slate-900">Consignment Detail</h1>
+        <p class="text-sm text-slate-600" *ngIf="detail">#{{ detail.consignmentNumber }}</p>
+      </div>
+    </div>
+    <a routerLink="/admin/consignments" class="text-sm font-semibold text-blue-700">Back to list</a>
+  </div>
+
+  <div *ngIf="loading" class="rounded border border-slate-200 bg-white p-6 text-slate-600">Loading...</div>
+  <p *ngIf="errorMessage" class="mb-4 rounded border border-rose-200 bg-rose-50 px-4 py-2 text-sm text-rose-700">{{ errorMessage }}</p>
+  <p *ngIf="successMessage" class="mb-4 rounded border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-700">{{ successMessage }}</p>
+
+  <article *ngIf="detail" class="mb-6 rounded-xl border border-slate-200 bg-white p-4">
+    <div class="flex flex-wrap items-center gap-3">
+      <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Status: {{ detail.status }}</span>
+      <label class="text-sm text-slate-600">Update status:</label>
+      <select #statusSelect class="rounded border border-slate-300 px-2 py-1 text-sm">
+        <option *ngFor="let status of statusOptions" [value]="status" [selected]="detail.status === status">{{ status }}</option>
+      </select>
+      <button type="button" (click)="updateStatus(statusSelect.value)" class="rounded bg-slate-900 px-3 py-1 text-sm text-white hover:bg-slate-700">Apply</button>
+    </div>
+  </article>
+
+  <form *ngIf="detail" [formGroup]="form" (ngSubmit)="save()" class="space-y-6">
+    <article class="rounded-xl border border-slate-200 bg-white p-4">
+      <h2 class="mb-3 text-lg font-semibold">Sender</h2>
+      <div class="grid gap-3 md:grid-cols-2" formGroupName="sender">
+        <input formControlName="companyName" placeholder="Company name" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="email" placeholder="Email" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson1Name" placeholder="Contact person 1 name" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson1Phone" placeholder="Contact person 1 phone" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson2Name" placeholder="Contact person 2 name" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson2Phone" placeholder="Contact person 2 phone" class="rounded border border-slate-300 px-3 py-2" />
+        <textarea formControlName="address" placeholder="Address" class="rounded border border-slate-300 px-3 py-2 md:col-span-2"></textarea>
+      </div>
+    </article>
+
+    <article class="rounded-xl border border-slate-200 bg-white p-4">
+      <h2 class="mb-3 text-lg font-semibold">Receiver</h2>
+      <div class="grid gap-3 md:grid-cols-2" formGroupName="receiver">
+        <input formControlName="companyName" placeholder="Company name" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="email" placeholder="Email" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson1Name" placeholder="Contact person 1 name" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson1Phone" placeholder="Contact person 1 phone" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson2Name" placeholder="Contact person 2 name" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="contactPerson2Phone" placeholder="Contact person 2 phone" class="rounded border border-slate-300 px-3 py-2" />
+        <textarea formControlName="address" placeholder="Address" class="rounded border border-slate-300 px-3 py-2 md:col-span-2"></textarea>
+      </div>
+    </article>
+
+    <article class="rounded-xl border border-slate-200 bg-white p-4">
+      <h2 class="mb-3 text-lg font-semibold">Billing (Admin-only)</h2>
+      <div class="grid gap-3 md:grid-cols-2" formGroupName="billing">
+        <input formControlName="orderPrice" type="number" placeholder="Order price" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="receivedAmount" type="number" placeholder="Received amount" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="balancePaymentMode" placeholder="Balance payment mode" class="rounded border border-slate-300 px-3 py-2" />
+        <textarea formControlName="balancePaymentNotes" placeholder="Balance payment notes" class="rounded border border-slate-300 px-3 py-2"></textarea>
+      </div>
+    </article>
+
+    <article class="rounded-xl border border-slate-200 bg-white p-4">
+      <h2 class="mb-3 text-lg font-semibold">Driver</h2>
+      <div class="grid gap-3 md:grid-cols-2" formGroupName="driver">
+        <input formControlName="vehicleNumber" placeholder="Vehicle number" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="driverName" placeholder="Driver name" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="driverContactNo" placeholder="Driver contact" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="secondContactNo" placeholder="Second contact" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="ownerContactNo" placeholder="Owner contact" class="rounded border border-slate-300 px-3 py-2 md:col-span-2" />
+      </div>
+    </article>
+
+    <button type="submit" [disabled]="saving" class="rounded bg-slate-900 px-5 py-2 text-white hover:bg-slate-700">
+      {{ saving ? 'Saving...' : 'Save Changes' }}
+    </button>
+  </form>
+</section>

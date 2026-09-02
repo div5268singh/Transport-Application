@@ -1,0 +1,135 @@
+@if (activeHero) {
+  <section class="hero">
+    <img [src]="activeHero.imagePath" [alt]="activeHero.title" class="hero__image" />
+    <div class="hero__shade"></div>
+    <div class="content-width hero__content">
+      <p class="hero__eyebrow"><span></span>{{ activeHero.title }}</p>
+      <h1>{{ heroHeading }}</h1>
+      <p class="hero__lead">{{ heroSubheading }}</p>
+      <div class="hero__actions">
+        <a routerLink="/contact" class="button button--signal">
+          {{ content('home.primaryAction') }} <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a routerLink="/services" class="button button--ghost">{{ content('home.secondaryAction') }}</a>
+      </div>
+    </div>
+
+    <div class="hero__controls">
+      <span>{{ (activeHeroIndex + 1).toString().padStart(2, '0') }}</span>
+      <div class="hero__dots">
+        @for (banner of banners; track banner.title; let i = $index) {
+          <button
+            type="button"
+            (click)="setActiveBanner(i)"
+            [class.is-active]="activeHeroIndex === i"
+            [attr.aria-label]="'Go to slide ' + (i + 1)"
+          ></button>
+        }
+      </div>
+      <span>{{ banners.length.toString().padStart(2, '0') }}</span>
+    </div>
+
+    <div class="hero__rail">
+      <div>
+        <strong>{{ content('home.railOneValue') }}</strong>
+        <span>Dispatch desk</span>
+      </div>
+      <div>
+        <strong>{{ content('home.railTwoValue') }}</strong>
+        <span>Industrial corridors</span>
+      </div>
+      <div>
+        <strong>{{ content('home.railThreeValue') }}</strong>
+        <span>Fleet capacity</span>
+      </div>
+      <a [href]="'tel:' + contactPhone">
+        <span>Direct dispatch line</span>
+        <strong>{{ contactPhone }}</strong>
+      </a>
+    </div>
+  </section>
+}
+
+<section class="about-block">
+  <div class="content-width about-grid">
+    <div class="section-heading">
+      <p class="eyebrow">Why New Satna Road Lines</p>
+      <h2>Freight handled with industrial precision.</h2>
+    </div>
+    <div class="about-copy">
+      <p>{{ content('home.aboutBody') }}</p>
+      <a routerLink="/about" class="text-link">Inside our operations <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="feature-list">
+      @if (features.length > 0) {
+        @for (feature of features; track feature.title; let i = $index) {
+          <article>
+            <span>0{{ i + 1 }}</span>
+            <div>
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.summary }}</p>
+            </div>
+          </article>
+        }
+      }
+    </div>
+  </div>
+</section>
+
+@if (services.length > 0) {
+<section class="services-block">
+  <div class="content-width">
+    <div class="section-topline">
+      <div class="section-heading">
+        <p class="eyebrow">What we move</p>
+        <h2>Road strength for every industrial load.</h2>
+      </div>
+      <a routerLink="/services" class="text-link">View all services <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="service-grid">
+      @for (service of services; track service.title; let i = $index) {
+        <app-poster-card [item]="service" [attr.data-index]="i + 1"></app-poster-card>
+      }
+    </div>
+  </div>
+</section>
+}
+
+@if (clients.length > 0) {
+<section class="clients-block">
+  <div class="content-width clients-layout">
+    <div class="clients-heading">
+      <p class="eyebrow">Trusted network</p>
+      <h2>Chosen by global shipping leaders.</h2>
+      <a routerLink="/clients" class="text-link">Our client network <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="client-grid">
+      @for (client of clients; track client.name) {
+        <article>
+          <img [src]="client.logoPath" [alt]="client.name" />
+          <p>{{ client.name }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+}
+
+@if (videos.length > 0) {
+<section class="fleet-block">
+  <div class="content-width">
+    <div class="fleet-heading">
+      <div>
+        <p class="eyebrow eyebrow--light">From the yard</p>
+        <h2>See the operation in motion.</h2>
+      </div>
+      <p>{{ content('home.fleetBody') }}</p>
+    </div>
+    <div class="video-grid">
+      @for (video of videos; track video.title) {
+        <app-video-player [item]="video"></app-video-player>
+      }
+    </div>
+  </div>
+</section>
+}

@@ -1,0 +1,70 @@
+:host { display: block; }
+.tracking-width { width: min(100% - 2rem, 76rem); margin-inline: auto; }
+.tracking-hero { position: relative; overflow: hidden; background: var(--ink); color: white; }
+.tracking-hero::after { position: absolute; top: -8rem; right: -5rem; width: 24rem; height: 24rem; border: 5rem solid rgba(215,227,109,.08); border-radius: 50%; content: ''; }
+.tracking-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.15fr; gap: 5rem; align-items: end; padding-block: clamp(4rem, 8vw, 7rem); }
+.tracking-hero h1 { max-width: 33rem; margin: .8rem 0 1rem; font-family: var(--font-display); font-size: clamp(3.6rem, 7vw, 6.2rem); line-height: .88; text-transform: uppercase; }
+.tracking-hero p:not(.eyebrow) { max-width: 31rem; margin: 0; color: #b4b6af; line-height: 1.75; }
+.tracking-form { padding: 1.6rem; border: 1px solid #4b4e47; background: #292c27; }
+.tracking-form label { display: block; margin-bottom: .75rem; color: #c9cac5; font-size: .67rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.tracking-form > div { display: grid; grid-template-columns: 1fr auto; }
+.tracking-form input { min-width: 0; border: 0; padding: 1rem; background: white; color: var(--ink); font: 700 .9rem var(--font-body); text-transform: uppercase; outline: none; }
+.tracking-form input:focus { box-shadow: inset 0 0 0 2px var(--acid); }
+.tracking-form button { display: inline-flex; align-items: center; gap: 1.2rem; border: 0; padding-inline: 1.3rem; background: var(--signal); color: white; font-size: .7rem; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+.tracking-form button:disabled { opacity: .65; cursor: wait; }
+.tracking-form small { display: block; margin-top: .6rem; color: #ff9b89; }
+.tracking-results { min-height: 32rem; padding-block: clamp(3.5rem, 7vw, 6rem); background: var(--paper); }
+.tracking-state, .tracking-empty { display: flex; min-height: 18rem; align-items: center; justify-content: center; gap: 1.2rem; border: 1px solid var(--line); background: white; text-align: center; }
+.tracking-state--error { justify-content: flex-start; min-height: auto; border-left: 4px solid var(--signal); padding: 2rem; text-align: left; }
+.tracking-state--error > span { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; background: var(--signal); color: white; font-weight: 800; }
+.tracking-state h2 { margin: 0 0 .35rem; font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; }
+.tracking-state p { margin: 0; color: var(--muted); font-size: .85rem; }
+.loader { width: 1.8rem; height: 1.8rem; border: 3px solid var(--line); border-top-color: var(--signal); border-radius: 50%; animation: spin .8s linear infinite; }
+.shipment-summary { border: 1px solid var(--line); background: white; animation: rise-in .5s ease both; }
+.shipment-summary header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--line); padding: 2rem; }
+.shipment-summary h2 { margin: .35rem 0 0; font-family: var(--font-display); font-size: 2.2rem; text-transform: uppercase; }
+.status-badge { padding: .65rem .8rem; background: var(--acid); font-size: .65rem; font-weight: 800; text-transform: uppercase; }
+.progress-track { display: grid; grid-template-columns: repeat(4, 1fr); padding: 2.2rem 2rem; }
+.progress-track > div { position: relative; display: grid; gap: .7rem; color: #a3a49f; font-size: .65rem; text-transform: uppercase; }
+.progress-track > div::before { position: absolute; top: .38rem; right: 0; left: 0; height: 2px; background: var(--line); content: ''; }
+.progress-track span { z-index: 1; width: .85rem; height: .85rem; border: 2px solid white; border-radius: 50%; background: #b8b9b4; box-shadow: 0 0 0 1px #b8b9b4; }
+.progress-track .is-complete { color: var(--ink); }
+.progress-track .is-complete::before, .progress-track .is-complete span { background: var(--signal); }
+.progress-track .is-complete span { box-shadow: 0 0 0 1px var(--signal); }
+.shipment-facts { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.shipment-facts section { display: grid; gap: .6rem; min-height: 8rem; align-content: center; border-right: 1px solid var(--line); padding: 1.5rem 2rem; }
+.shipment-facts section:last-child { border-right: 0; }
+.shipment-facts span { color: var(--muted); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.shipment-facts strong { font-family: var(--font-display); font-size: 1.15rem; text-transform: uppercase; }
+.history { display: grid; grid-template-columns: .75fr 1.25fr; gap: 5rem; margin-top: 4rem; }
+.history__heading h2 { margin: .6rem 0 0; font-family: var(--font-display); font-size: 2.7rem; text-transform: uppercase; }
+.history ol { margin: 0; padding: 0; list-style: none; }
+.history li { position: relative; min-height: 7rem; border-left: 1px solid var(--line); padding: 0 0 2.2rem 2rem; }
+.history__marker { position: absolute; top: .2rem; left: -.45rem; width: .85rem; height: .85rem; border: 3px solid var(--paper); border-radius: 50%; background: #9b9c96; box-shadow: 0 0 0 1px #9b9c96; }
+.history li.is-latest .history__marker { background: var(--signal); box-shadow: 0 0 0 1px var(--signal), 0 0 0 8px rgba(227,60,34,.1); }
+.history time { color: var(--signal); font-size: .64rem; font-weight: 800; text-transform: uppercase; }
+.history h3 { margin: .4rem 0 .2rem; font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; }
+.history p { margin: 0; color: var(--muted); font-size: .82rem; }
+.history__empty { border-left: 3px solid var(--acid); padding: 1.3rem; background: white; line-height: 1.7; }
+.tracking-empty { flex-direction: column; }
+.tracking-empty > span { display: grid; width: 4rem; height: 4rem; place-items: center; background: var(--ink); color: var(--acid); font-family: var(--font-display); font-size: 1.3rem; }
+.tracking-empty h2 { margin: .2rem 0 0; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; }
+.tracking-empty p { max-width: 35rem; margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.7; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(1rem); } }
+@media (max-width: 800px) {
+  .tracking-hero__inner, .history { grid-template-columns: 1fr; gap: 2.5rem; }
+  .shipment-facts { grid-template-columns: repeat(2, 1fr); }
+  .shipment-facts section:nth-child(2) { border-right: 0; }
+  .shipment-facts section:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .tracking-form > div { grid-template-columns: 1fr; }
+  .tracking-form button { min-height: 3rem; justify-content: center; }
+  .progress-track { padding-inline: 1.3rem; }
+  .progress-track strong { max-width: 4rem; }
+  .shipment-facts { grid-template-columns: 1fr; }
+  .shipment-facts section { min-height: 6.5rem; border-right: 0; border-bottom: 1px solid var(--line); }
+  .shipment-summary header { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { .loader { animation: none; } .shipment-summary { animation: none; } }

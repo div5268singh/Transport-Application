@@ -1,0 +1,62 @@
+<div style="padding: 24px;">
+
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom: 20px;">
+    <img src="assets/brand/logo-icon.svg" alt="New Satna Road Lines" style="width: 40px; height: 40px;" />
+    <div>
+      <h1 style="margin:0; font-size: 20px;">All consignments</h1>
+      <p style="margin:0; color:#5B6B85; font-size: 13px;">Every consignment created, its current status, and who it's for.</p>
+    </div>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom: 16px;">
+    <label for="statusFilter" style="font-size: 13px; color:#5B6B85;">Filter by status</label>
+    <select id="statusFilter" [(ngModel)]="statusFilter" (ngModelChange)="onStatusFilterChange()">
+      <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+    </select>
+    <a routerLink="/admin/consignments/new" class="btn-pulse"
+       style="margin-left:auto; background:#152A47; color:#fff; padding:8px 16px; border-radius:8px; text-decoration:none; font-size: 13px;">
+      + New consignment
+    </a>
+  </div>
+
+  <div *ngIf="loading" style="padding: 40px; text-align:center; color:#5B6B85;">Loading consignments…</div>
+
+  <div *ngIf="errorMessage" style="padding: 16px; background:#FCEBEB; color:#791F1F; border-radius: 8px; margin-bottom: 16px;">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && consignments.length === 0" style="padding: 40px; text-align:center; color:#5B6B85;">
+    No consignments yet. Create the first one to get started.
+  </div>
+
+  <table *ngIf="!loading && consignments.length > 0" style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr style="text-align:left; border-bottom: 2px solid #EAF2FB;">
+        <th style="padding: 10px 8px; font-size: 12px; color:#5B6B85;">Consignment #</th>
+        <th style="padding: 10px 8px; font-size: 12px; color:#5B6B85;">Sender</th>
+        <th style="padding: 10px 8px; font-size: 12px; color:#5B6B85;">Receiver</th>
+        <th style="padding: 10px 8px; font-size: 12px; color:#5B6B85;">Status</th>
+        <th style="padding: 10px 8px; font-size: 12px; color:#5B6B85;">Created</th>
+        <th style="padding: 10px 8px; font-size: 12px; color:#5B6B85;"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of consignments"
+          style="border-bottom: 1px solid #EAF2FB;">
+        <td style="padding: 10px 8px; font-weight: 500;">{{ c.consignmentNumber }}</td>
+        <td style="padding: 10px 8px;">{{ c.senderCompanyName }}</td>
+        <td style="padding: 10px 8px;">{{ c.receiverCompanyName }}</td>
+        <td style="padding: 10px 8px;">
+          <span style="padding:2px 10px; border-radius: 999px; font-size: 12px; background:#EAF2FB; color:#152A47;">
+            {{ c.status }}
+          </span>
+        </td>
+        <td style="padding: 10px 8px; font-size: 13px; color:#5B6B85;">{{ c.createdAt | date:'mediumDate' }}</td>
+        <td style="padding: 10px 8px; text-align:right;">
+          <a [routerLink]="['/admin/consignments', c.id]" style="color:#F4A100; font-size: 13px; text-decoration:none;">View →</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

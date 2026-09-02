@@ -1,0 +1,224 @@
+{
+  "appName": "New Satna Road Lines",
+  "brand": {
+    "logoPath": "assets/brand/logo.svg"
+  },
+  "contact": {
+    "phone": "+91-93106-91333",
+    "email": "corp@santaroadlogistics.com",
+    "leadEmail": "dispatch@santaroadlogistics.com",
+    "address": "B-87, Industrial Yard Block, MB Road Corridor, New Delhi - 110044"
+  },
+  "content": {
+    "shell.utilityTagline": "Industrial freight, moving without pause.",
+    "shell.brandName": "New Satna Road Lines",
+    "shell.brandSubtitle": "Industrial Logistics",
+    "shell.nav.home": "Home",
+    "shell.nav.about": "About",
+    "shell.nav.services": "Services",
+    "shell.nav.tracking": "Track Shipment",
+    "shell.nav.clients": "Our Clients",
+    "shell.nav.contact": "Contact",
+    "shell.quoteButton": "Plan a shipment",
+    "shell.footerNavigation": "Navigate",
+    "shell.footerContact": "Dispatch desk",
+    "shell.footerAvailability": "Available 24 hours, all week",
+    "shell.footerStatement": "Steel. Machinery. Materials. Delivered.",
+    "home.primaryAction": "Plan your load",
+    "home.secondaryAction": "Explore services",
+    "home.railOneValue": "24/7",
+    "home.railTwoValue": "Pan India",
+    "home.railThreeValue": "Heavy duty",
+    "home.aboutBody": "We move steel, iron, machinery, and factory raw materials across India with disciplined dispatch, clear communication, and truck capacity matched to the load.",
+    "home.fleetBody": "Loading, securement, dispatch, and the road ahead. A closer look at how industrial freight leaves the yard ready.",
+    "home.seoTitle": "Heavy Industrial Trucking and Raw Material Logistics",
+    "home.seoDescription": "Book reliable city-to-city transport for steel, iron, and high-tonnage factory raw materials with live fleet coordination.",
+    "about.imagePath": "/uploads/about-warehouse-workers.jpg",
+    "about.imageAlt": "Warehouse logistics operations",
+    "about.seoTitle": "About Our Intercity Industrial Freight Network",
+    "about.seoDescription": "Learn how our heavy industrial trucking team moves steel, iron, and manufacturing loads safely across major corridors.",
+    "services.seoTitle": "Industrial Transport Services Portfolio",
+    "services.seoDescription": "Explore trailer transport, over dimension hauling, container movement, and warehousing services for heavy industrial freight.",
+    "clients.seoTitle": "Our Industrial Logistics Clients",
+    "clients.seoDescription": "Review the renowned shipping and logistics clients served by our heavy industrial trucking operations team.",
+    "contact.formIntro": "Share your load details and receive a callback from dispatch support.",
+    "contact.formHelp": "On submit, your email app opens with all lead details addressed to",
+    "contact.submitButton": "Send Message",
+    "contact.successMessage": "Thank you. Your email draft has been opened for {email}. Please send it to submit this lead.",
+    "contact.seoTitle": "Contact Us for Steel and Iron Freight Quotes",
+    "contact.seoDescription": "Submit your city-to-city heavy freight enquiry for raw materials including steel coils, billets, iron sheets, and factory supply loads.",
+    "tracking.intro": "Enter the consignment number shared with the sender and receiver.",
+    "tracking.checkingButton": "Checking...",
+    "tracking.submitButton": "Track shipment",
+    "tracking.requiredMessage": "Enter a consignment number to continue.",
+    "tracking.loadingMessage": "Contacting the dispatch network...",
+    "tracking.notFoundMessage": "No shipment was found with that consignment number. Check the number and try again.",
+    "tracking.unavailableMessage": "Tracking is temporarily unavailable. Please contact the dispatch desk for an update.",
+    "tracking.assignmentPending": "Being assigned",
+    "tracking.emptyHistory": "The consignment is registered. Its first movement update will appear here after dispatch.",
+    "tracking.emptyBody": "The same tracking view is available to both the sender and receiver through the shared consignment link.",
+    "tracking.emptyMonogram": "SR",
+    "tracking.status.Created": "Created",
+    "tracking.status.PickedUp": "Picked Up",
+    "tracking.status.InTransit": "In Transit",
+    "tracking.status.Delivered": "Delivered",
+    "tracking.seoTitle": "Track Your Industrial Shipment",
+    "tracking.seoDescription": "Check the current status, assigned vehicle, and location history for a New Satna Road Lines consignment.",
+    "shared.posterAction": "Explore",
+    "shared.posterAriaPrefix": "Learn more about",
+    "shared.videoFallback": "Your browser does not support HTML5 video playback."
+  },
+  "seo": {
+    "defaultDescription": "New Satna Road Lines provides heavy-duty road transport, steel movement, machinery shifting, and intercity industrial freight solutions across India.",
+    "keywords": [
+      "industrial logistics company",
+      "steel transport services",
+      "heavy haul trucking",
+      "factory raw material transport",
+      "intercity freight logistics",
+      "machinery shifting service",
+      "flatbed truck transport",
+      "industrial dispatch support"
+    ]
+  },
+  "homepage": {
+    "heroHeading": "Reliable city-to-city freight for heavy industrial loads",
+    "heroSubheading": "New Satna Road Lines helps manufacturers, steel traders, and project suppliers move raw materials and finished goods with disciplined dispatch, route planning, and dependable fleet support.",
+    "banners": [
+      {
+        "title": "Industrial Freight Movement",
+        "subtitle": "Dedicated truck operations for steel coils, iron sheets, machinery, and bulk plant material dispatch.",
+        "imagePath": "/uploads/home-hero-truck.jpg",
+        "ctaText": "Book a shipment"
+      },
+      {
+        "title": "Dispatch-Ready Fleet",
+        "subtitle": "Scalable flatbed and trailer capacity designed for time-sensitive industrial supply chains.",
+        "imagePath": "/uploads/home-hero-convoy.jpg",
+        "ctaText": "Get a quote"
+      },
+      {
+        "title": "Yard-to-Route Coordination",
+        "subtitle": "From loading to final delivery, every movement is monitored for safety, timing, and clear communication.",
+        "imagePath": "/uploads/service-heavy-machinery.jpg",
+        "ctaText": "Contact us"
+      }
+    ],
+    "posters": [
+      {
+        "title": "Road Transportation Service",
+        "summary": "Customized city-to-city logistics for industrial supply chains and B2B freight planning.",
+        "imagePath": "/uploads/service-flatbed-loading.jpg"
+      },
+      {
+        "title": "Trailer Transport Service",
+        "summary": "Heavy-duty trailer movement for steel, iron, and high-tonnage project cargo across major lanes.",
+        "imagePath": "/uploads/service-steel-coils.jpg"
+      },
+      {
+        "title": "Container Movement Services",
+        "summary": "Schedule-controlled container pickup, repositioning, and intercity movement with secure handling.",
+        "imagePath": "/uploads/service-heavy-machinery.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "title": "Fleet Dispatch and Loading Operations",
+        "summary": "A brief look at our loading workflow, dispatch planning, and road-ready industrial handling process.",
+        "videoPath": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
+      }
+    ]
+  },
+  "about": {
+    "overview": "New Satna Road Lines is a growing transport and freight company focused on moving industrial materials with speed, safety, and consistency. Our team coordinates loading, dispatch, and route planning for steel, iron, machinery, and factory raw material movement across India. We work closely with production units, traders, and project supply chains to keep their shipments moving without disruption.",
+    "operationalFootprint": [
+      "24x7 dispatch support for intercity industrial freight movements.",
+      "Route-planned heavy vehicle movement for steel coils, iron sheets, machinery, and factory material loads.",
+      "Safe loading and unloading coordination with trained operations teams and yard supervision.",
+      "Short-haul and long-haul transport planning built around client deadlines and delivery windows.",
+      "Monitoring, communication, and exception handling for critical freight updates.",
+      "Flexible service coverage across major industrial corridors and high-demand freight lanes."
+    ]
+  },
+  "business": {
+    "services": [
+      {
+        "title": "Road Transportation Service",
+        "summary": "Domestic industrial freight planning and on-time movement of bulk cargo, plant raw materials, and heavy consignments.",
+        "imagePath": "/uploads/service-flatbed-loading.jpg"
+      },
+      {
+        "title": "Trailer Transport Service",
+        "summary": "High-capacity trailer solutions for steel, iron, equipment, and oversized industrial loads.",
+        "imagePath": "/uploads/service-steel-coils.jpg"
+      },
+      {
+        "title": "Over Dimension Transportation Service",
+        "summary": "Specialized handling for extended machinery, industrial units, and out-of-gauge transport requirements.",
+        "imagePath": "/uploads/service-heavy-machinery.jpg"
+      },
+      {
+        "title": "Container Movement Services",
+        "summary": "Secure container movement with schedule and dispatch coordination for industrial customers.",
+        "imagePath": "/uploads/service-flatbed-loading.jpg"
+      },
+      {
+        "title": "Warehousing & Yard Support",
+        "summary": "Temporary holding, material staging, and yard coordination for large dispatch plans and inbound shipments.",
+        "imagePath": "/uploads/service-heavy-machinery.jpg"
+      },
+      {
+        "title": "Factory & Plant Logistics",
+        "summary": "End-to-end movement support for manufacturing plants, warehouses, and industrial supply chains.",
+        "imagePath": "/uploads/service-steel-coils.jpg"
+      }
+    ],
+    "features": [
+      {
+        "title": "Pan-India Fleet Coverage",
+        "summary": "Flexible operations across major industrial hubs, factories, and transport corridors throughout India."
+      },
+      {
+        "title": "On-Time Dispatch Planning",
+        "summary": "Clear movement schedules and route discipline to reduce delays in urgent industrial shipments."
+      },
+      {
+        "title": "Safety-Focused Handling",
+        "summary": "Loading, securement, and transit controls designed for high-value and heavy material cargo."
+      },
+      {
+        "title": "24/7 Client Support",
+        "summary": "Always-on contact for dispatch updates, ETA checks, and operational escalation support."
+      }
+    ],
+    "clients": [
+      {
+        "name": "MAERSK India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "CMA-CGM Agencies India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "COSCO Shipping Line India Pvt. Ltd.",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "Hapag-Lloyd India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "MSC Agency India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "Evergreen Shipping Agency India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      }
+    ]
+  },
+  "admin": {
+    "authApiBaseUrl": "/api/admin"
+  }
+}

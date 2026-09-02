@@ -1,0 +1,92 @@
+<div class="site-shell">
+  <div class="utility-bar">
+    <div class="shell-width utility-bar__inner">
+      <span>{{ content('shell.utilityTagline') }}</span>
+      <a [href]="'mailto:' + appConfig.contact.leadEmail">{{ appConfig.contact.leadEmail }}</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell-width header-inner">
+      <a routerLink="/" class="brand" (click)="closeNavigation()">
+        <span class="brand__mark">
+          <img [src]="appConfig.brand.logoPath" [alt]="appConfig.appName" />
+        </span>
+        <span class="brand__copy">
+          <strong>{{ content('shell.brandName') }}</strong>
+          <small>{{ content('shell.brandSubtitle') }}</small>
+        </span>
+      </a>
+
+      <button
+        type="button"
+        class="nav-toggle"
+        [class.nav-toggle--open]="isNavigationOpen"
+        [attr.aria-expanded]="isNavigationOpen"
+        aria-controls="main-navigation"
+        [attr.aria-label]="'Toggle navigation'"
+        (click)="toggleNavigation()"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-navigation" class="main-nav" [class.main-nav--open]="isNavigationOpen" [attr.aria-label]="'Main navigation'">
+        <ul>
+          @for (link of navigationLinks; track link.path) {
+            <li>
+              <a
+                [routerLink]="link.path"
+                [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+                routerLinkActive="is-active"
+                (click)="closeNavigation()"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <a routerLink="/contact" class="header-quote">
+        <span>{{ content('shell.quoteButton') }}</span>
+        <b aria-hidden="true">&rarr;</b>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell-width footer-grid">
+      <section class="footer-intro">
+        <p class="eyebrow eyebrow--light">Keep industry moving</p>
+        <h2>Built for the roads that carry India forward.</h2>
+        <a [href]="'tel:' + appConfig.contact.phone" class="footer-phone">{{ appConfig.contact.phone }}</a>
+      </section>
+
+      <section class="footer-links">
+        <h3>{{ content('shell.footerNavigation') }}</h3>
+        <ul>
+          @for (link of navigationLinks; track link.path) {
+            @if (link.path !== '/admin') {
+              <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+            }
+          }
+        </ul>
+      </section>
+
+      <section class="footer-contact">
+        <h3>{{ content('shell.footerContact') }}</h3>
+        <p>{{ appConfig.contact.address }}</p>
+        <a [href]="'mailto:' + appConfig.contact.email">{{ appConfig.contact.email }}</a>
+        <span>{{ content('shell.footerAvailability') }}</span>
+      </section>
+    </div>
+    <div class="shell-width footer-bottom">
+      <span>&copy; {{ currentYear }} {{ appConfig.appName }}</span>
+      <span>{{ content('shell.footerStatement') }}</span>
+    </div>
+  </footer>
+</div>
