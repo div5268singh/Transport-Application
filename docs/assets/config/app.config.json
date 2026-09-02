@@ -1,0 +1,150 @@
+{
+  "appName": "New Santa Road Industrial Logistics",
+  "brand": {
+    "logoPath": "assets/brand/logo.svg"
+  },
+  "contact": {
+    "phone": "+91-93106-91333",
+    "email": "corp@santaroadlogistics.com",
+    "leadEmail": "dispatch@santaroadlogistics.com",
+    "address": "B-87, Industrial Yard Block, MB Road Corridor, New Delhi - 110044"
+  },
+  "seo": {
+    "defaultDescription": "Heavy industrial trucking company for city-to-city movement of steel, iron, machinery, and factory raw materials.",
+    "keywords": [
+      "heavy industrial trucking",
+      "steel transport logistics",
+      "bulk iron freight services",
+      "factory raw material transport",
+      "intercity flatbed truck booking"
+    ]
+  },
+  "homepage": {
+    "heroHeading": "No.1 Place for City-to-City Industrial Transportation Services",
+    "heroSubheading": "Trusted dispatch planning, high-capacity trailers, and on-time delivery for steel, iron, and factory raw material movement.",
+    "banners": [
+      {
+        "title": "Transportation Service Providers",
+        "subtitle": "Dedicated heavy truck operations with optimized intercity route planning and dispatch support.",
+        "imagePath": "assets/media/hero-1.svg",
+        "ctaText": "Read More"
+      },
+      {
+        "title": "No.1 Place for Your Transportation Services",
+        "subtitle": "Scalable trailer and flatbed deployments for bulk steel and iron freight consignments.",
+        "imagePath": "assets/media/hero-2.svg",
+        "ctaText": "Contact Us"
+      }
+    ],
+    "posters": [
+      {
+        "title": "Road Transportation Service",
+        "summary": "Customized city-to-city logistics using owned trucks and partner mobility support.",
+        "imagePath": "assets/media/service-1.svg"
+      },
+      {
+        "title": "Trailer Transport Service",
+        "summary": "Heavy-duty trailer planning for over-dimension and high-tonnage freight loads.",
+        "imagePath": "assets/media/service-1.svg"
+      },
+      {
+        "title": "Container Movement Services",
+        "summary": "Domestic and intercity container repositioning with schedule-controlled dispatch.",
+        "imagePath": "assets/media/service-1.svg"
+      }
+    ],
+    "videos": [
+      {
+        "title": "Fleet Dispatch and Loading Operations",
+        "summary": "A quick walkthrough of heavy truck dispatch workflow and cargo securement.",
+        "videoPath": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
+      }
+    ]
+  },
+  "about": {
+    "overview": "Santa Road Industrial Logistics is one of the fastest growing transport companies focused on steel, iron, and bulk factory material movement. Our team combines dispatch expertise, yard-level coordination, and route-planned trucking to deliver reliable transportation support for B2B industrial clients.",
+    "operationalFootprint": [
+      "24x7 client support for intercity heavy freight planning and updates.",
+      "On-time and safe delivery process backed by trained operations teams.",
+      "Cost-effective movement plans for steel coils, iron sheets, and plant loads.",
+      "Large truck handling yard with loading support and monitored dispatch checks."
+    ]
+  },
+  "business": {
+    "services": [
+      {
+        "title": "Road Transportation Service",
+        "summary": "Customized transportation plans for domestic industrial supply routes.",
+        "imagePath": "assets/media/service-1.svg"
+      },
+      {
+        "title": "Trailer Transport Service",
+        "summary": "High-capacity trailer movement for heavy project cargo and factory materials.",
+        "imagePath": "assets/media/service-1.svg"
+      },
+      {
+        "title": "Over Dimension Transportation Service",
+        "summary": "Specialized operations for oversized equipment and heavy industrial modules.",
+        "imagePath": "assets/media/service-1.svg"
+      },
+      {
+        "title": "Container Movement Services",
+        "summary": "Container pickup, delivery, and intercity lane execution with schedule controls.",
+        "imagePath": "assets/media/service-1.svg"
+      },
+      {
+        "title": "Container Services",
+        "summary": "End-to-end handling support for import/export-linked container movement.",
+        "imagePath": "assets/media/service-1.svg"
+      },
+      {
+        "title": "Warehousing",
+        "summary": "Yard and warehousing coordination for temporary holding and material staging.",
+        "imagePath": "assets/media/service-1.svg"
+      }
+    ],
+    "features": [
+      {
+        "title": "All India Services",
+        "summary": "Flexible operational footprint across major industrial corridors and connected routes."
+      },
+      {
+        "title": "On Time Delivery",
+        "summary": "Process-driven dispatch planning to meet strict industrial delivery windows."
+      },
+      {
+        "title": "24/7 Telephone Support",
+        "summary": "Always-on support line for dispatch updates, ETA checks, and escalation handling."
+      }
+    ],
+    "clients": [
+      {
+        "name": "MAERSK India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "CMA-CGM Agencies India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "COSCO Shipping Line India Pvt. Ltd.",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "Hapag-Lloyd India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "MSC Agency India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      },
+      {
+        "name": "Evergreen Shipping Agency India Pvt Ltd",
+        "logoPath": "assets/media/client-1.svg"
+      }
+    ]
+  },
+  "admin": {
+    "authApiBaseUrl": "/api/admin"
+  }
+}

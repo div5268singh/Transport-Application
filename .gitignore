@@ -30,7 +30,10 @@ yarn-error.log
 
 # Miscellaneous
 /.angular/cache
+<<<<<<< HEAD
 server/SantaRoad.Api/appsettings.Development.json
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 .sass-cache/
 /connect.lock
 /coverage

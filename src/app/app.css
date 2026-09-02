@@ -1,5 +1,6 @@
 :host {
   display: block;
+<<<<<<< HEAD
 }
 
 .site-shell {
@@ -377,4 +378,6 @@
   .header-quote {
     transition: none;
   }
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 }

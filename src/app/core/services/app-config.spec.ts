@@ -18,7 +18,10 @@ describe('AppConfig', () => {
       email: 'contact@example.com',
       address: 'Delhi',
     },
+<<<<<<< HEAD
     content: {},
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     seo: {
       defaultDescription: 'default description',
       keywords: ['k1', 'k2', 'k3', 'k4', 'k5'],
@@ -60,14 +63,20 @@ describe('AppConfig', () => {
     expect(service).toBeTruthy();
   });
 
+<<<<<<< HEAD
   it('should ignore an invalid browser cache and load database content', async () => {
     localStorage.setItem('santa-road-site-content', '{invalid-json');
+=======
+  it('should ignore invalid stored override and fall back to base config', async () => {
+    localStorage.setItem('santa-road-config-override', '{invalid-json');
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
     const loadPromise = service.loadConfig();
 
     const request = httpTestingController.expectOne('assets/config/app.config.json');
     expect(request.request.method).toBe('GET');
     request.flush(baseConfig);
+<<<<<<< HEAD
     await Promise.resolve();
 
     const contentRequest = httpTestingController.expectOne('/api/content');
@@ -155,5 +164,11 @@ describe('AppConfig', () => {
 
     await loadPromise;
     expect(service.getConfig().content['home.optionalSection']).toBe('');
+=======
+
+    await expectAsync(loadPromise).toBeResolved();
+    expect(service.getConfig().appName).toBe(baseConfig.appName);
+    expect(localStorage.getItem('santa-road-config-override')).toBeNull();
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   });
 });

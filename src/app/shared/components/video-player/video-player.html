@@ -1,13 +1,23 @@
+<<<<<<< HEAD
 <figure class="video-card">
   @if (embedVideoUrl) {
     <iframe
       class="video-card__media"
       [src]="embedVideoUrl"
       [title]="'Embedded video player'"
+=======
+<figure class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+  @if (embedVideoUrl) {
+    <iframe
+      class="h-72 w-full bg-black"
+      [src]="embedVideoUrl"
+      title="Embedded video player"
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>
   } @else {
+<<<<<<< HEAD
     <video class="video-card__media" controls [src]="item.videoPath" [attr.poster]="item.posterPath || null">
       {{ content('shared.videoFallback') }}
     </video>
@@ -15,5 +25,14 @@
   <figcaption>
     <h3>{{ item.title }}</h3>
     <p>{{ item.summary }}</p>
+=======
+    <video class="h-72 w-full bg-black object-cover" controls [src]="item.videoPath" [attr.poster]="item.posterPath || null">
+      Your browser does not support HTML5 video playback.
+    </video>
+  }
+  <figcaption class="p-4">
+    <h3 class="text-lg font-semibold text-slate-900">{{ item.title }}</h3>
+    <p class="mt-2 text-sm text-slate-600">{{ item.summary }}</p>
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   </figcaption>
 </figure>

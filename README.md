@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # New Satna Road Lines
+=======
+# SantaRoad
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.35.
 
@@ -36,6 +40,7 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+<<<<<<< HEAD
 ## Production deployment
 
 Install the .NET 8 Hosting Bundle on the server, then create the combined Angular and API artifact from the repository root:
@@ -80,6 +85,8 @@ Persist and back up `wwwroot/uploads` across releases. It contains administrator
 
 Rotate any database password, JWT key, or admin password that has previously been shared or committed. Keep `server/SantaRoad.Api/appsettings.Development.json` local; it is ignored and excluded from publish output.
 
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 ## Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:

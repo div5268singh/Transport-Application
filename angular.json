@@ -68,9 +68,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+<<<<<<< HEAD
           "options": {
             "proxyConfig": "proxy.conf.json"
           },
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
           "configurations": {
             "production": {
               "buildTarget": "santa-road:build:production"

@@ -1,4 +1,5 @@
 @if (activeHero) {
+<<<<<<< HEAD
   <section class="hero">
     <img [src]="activeHero.imagePath" [alt]="activeHero.title" class="hero__image" />
     <div class="hero__shade"></div>
@@ -46,10 +47,44 @@
         <span>Direct dispatch line</span>
         <strong>{{ contactPhone }}</strong>
       </a>
+=======
+  <section class="relative h-[460px] overflow-hidden">
+    <img [src]="activeHero.imagePath" [alt]="activeHero.title" class="h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-slate-950/55"></div>
+    <div class="absolute inset-0 flex items-center">
+      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-sm font-semibold uppercase tracking-widest text-blue-200">Transportation Service Providers</p>
+        <h1 class="mt-3 max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl">
+          {{ heroHeading }}
+        </h1>
+        <p class="mt-4 max-w-2xl text-sm text-slate-200 sm:text-base">{{ heroSubheading }}</p>
+        <div class="mt-7 flex gap-3">
+          <a routerLink="/about" class="rounded bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+            {{ activeHero.ctaText || 'Read More' }}
+          </a>
+          <a routerLink="/contact" class="rounded bg-orange-500 px-5 py-3 text-sm font-semibold text-white hover:bg-orange-600">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2">
+      @for (banner of banners; track banner.title; let i = $index) {
+        <button
+          type="button"
+          (click)="setActiveBanner(i)"
+          [class.bg-white]="activeHeroIndex === i"
+          [class.bg-white/40]="activeHeroIndex !== i"
+          class="h-2 w-8 rounded"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+        ></button>
+      }
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     </div>
   </section>
 }
 
+<<<<<<< HEAD
 <section class="about-block">
   <div class="content-width about-grid">
     <div class="section-heading">
@@ -72,10 +107,53 @@
           </article>
         }
       }
+=======
+<section class="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8">
+  <article>
+    <h2 class="text-sm font-bold uppercase tracking-widest text-blue-600">About Us</h2>
+    <h3 class="mt-2 text-3xl font-bold text-slate-900">{{ appName }} is an excelled transport partner in India.</h3>
+    <p class="mt-4 text-slate-700">
+      We handle steel, iron, and industrial raw material transportation with operational discipline,
+      dispatch visibility, and flexible truck capacity.
+    </p>
+    <a routerLink="/about" class="mt-6 inline-flex rounded bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+      Explore More
+    </a>
+  </article>
+  <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-xl font-semibold text-slate-900">Core Feature Highlights</h3>
+    <ul class="mt-4 space-y-4">
+      @for (feature of features; track feature.title) {
+        <li>
+          <p class="font-semibold text-slate-900">{{ feature.title }}</p>
+          <p class="text-sm text-slate-600">{{ feature.summary }}</p>
+        </li>
+      }
+    </ul>
+  </article>
+</section>
+
+<section class="bg-white py-14">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-blue-600">Our Services</h2>
+      <h3 class="mt-2 text-3xl font-bold text-slate-900">Explore Our Services</h3>
+    </div>
+    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      @for (service of services; track service.title) {
+        <app-poster-card [item]="service"></app-poster-card>
+      }
+    </div>
+    <div class="mt-8 text-center">
+      <a routerLink="/services" class="rounded border border-blue-600 px-5 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50">
+        Read All Services
+      </a>
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     </div>
   </div>
 </section>
 
+<<<<<<< HEAD
 @if (services.length > 0) {
 <section class="services-block">
   <div class="content-width">
@@ -126,10 +204,39 @@
       <p>{{ content('home.fleetBody') }}</p>
     </div>
     <div class="video-grid">
+=======
+<section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+  <div class="text-center">
+    <h2 class="text-sm font-bold uppercase tracking-widest text-blue-600">Our Clients</h2>
+    <h3 class="mt-2 text-3xl font-bold text-slate-900">Trusted by Renowned Shipping Lines</h3>
+  </div>
+  <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    @for (client of clients; track client.name) {
+      <article class="rounded-lg border border-slate-200 bg-white p-4 text-center shadow-sm">
+        <img [src]="client.logoPath" [alt]="client.name" class="mx-auto h-14 w-auto object-contain" />
+        <p class="mt-4 text-sm font-semibold text-slate-800">{{ client.name }}</p>
+      </article>
+    }
+  </div>
+  <div class="mt-8 text-center">
+    <a routerLink="/clients" class="rounded border border-blue-600 px-5 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50">
+      View More Clients
+    </a>
+  </div>
+</section>
+
+<section class="bg-slate-900 py-14">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-center text-2xl font-bold text-white">Fleet Operations Video</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       @for (video of videos; track video.title) {
         <app-video-player [item]="video"></app-video-player>
       }
     </div>
   </div>
 </section>
+<<<<<<< HEAD
 }
+=======
+>>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
