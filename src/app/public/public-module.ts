@@ -9,10 +9,7 @@ import { ContactUs } from './pages/contact-us/contact-us';
 import { SharedModule } from '../shared/shared-module';
 import { Services } from './pages/services/services';
 import { Clients } from './pages/clients/clients';
-<<<<<<< HEAD
 import { ShipmentTracking } from './pages/shipment-tracking/shipment-tracking';
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
 
 @NgModule({
@@ -21,12 +18,8 @@ import { ShipmentTracking } from './pages/shipment-tracking/shipment-tracking';
     AboutUs,
     ContactUs,
     Services,
-<<<<<<< HEAD
     Clients,
     ShipmentTracking
-=======
-    Clients
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   ],
   imports: [
     CommonModule,

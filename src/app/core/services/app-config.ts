@@ -2,16 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { AppConfigModel } from '../models/app-config.model';
-<<<<<<< HEAD
 import { ContentService } from './content';
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppConfig {
-<<<<<<< HEAD
   private readonly cacheKey = 'santa-road-site-content';
   private baseConfig: AppConfigModel | null = null;
   private config: AppConfigModel | null = null;
@@ -56,23 +52,6 @@ export class AppConfig {
       this.applyConfig(baseConfig);
       this.cacheConfig(baseConfig);
     }
-=======
-  private readonly overrideStorageKey = 'santa-road-config-override';
-  private baseConfig: AppConfigModel | null = null;
-  private config: AppConfigModel | null = null;
-
-  constructor(private readonly http: HttpClient) {}
-
-  loadConfig(): Promise<void> {
-    return firstValueFrom(this.http.get<AppConfigModel>('assets/config/app.config.json')).then(
-      (rawBaseConfig) => {
-        const baseConfig = this.normalizeConfig(rawBaseConfig);
-        this.assertValidConfig(baseConfig);
-        this.baseConfig = this.cloneConfig(baseConfig);
-        this.config = this.getStoredOverride() ?? this.cloneConfig(baseConfig);
-      },
-    );
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   }
 
   getConfig(): AppConfigModel {
@@ -87,7 +66,6 @@ export class AppConfig {
     return this.cloneConfig(this.getConfig());
   }
 
-<<<<<<< HEAD
   async saveConfigOverride(nextConfig: AppConfigModel): Promise<void> {
     const normalizedConfig = this.normalizeConfig(nextConfig);
     this.assertValidConfig(normalizedConfig);
@@ -98,43 +76,11 @@ export class AppConfig {
   }
 
   async clearConfigOverride(): Promise<void> {
-=======
-  saveConfigOverride(nextConfig: AppConfigModel): void {
-    this.assertValidConfig(nextConfig);
-    const clonedConfig = this.cloneConfig(nextConfig);
-    this.config = clonedConfig;
-    localStorage.setItem(this.overrideStorageKey, JSON.stringify(clonedConfig));
-  }
-
-  clearConfigOverride(): void {
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     if (!this.baseConfig) {
       throw new Error('Base config not loaded. Unable to clear override.');
     }
 
-<<<<<<< HEAD
     await this.saveConfigOverride(this.baseConfig);
-=======
-    localStorage.removeItem(this.overrideStorageKey);
-    this.config = this.cloneConfig(this.baseConfig);
-  }
-
-  private getStoredOverride(): AppConfigModel | null {
-    const rawOverride = localStorage.getItem(this.overrideStorageKey);
-    if (!rawOverride) {
-      return null;
-    }
-
-    try {
-      const parsedOverride = this.normalizeConfig(JSON.parse(rawOverride) as AppConfigModel);
-      this.assertValidConfig(parsedOverride);
-      return this.cloneConfig(parsedOverride);
-    } catch (error) {
-      console.warn('Ignoring invalid stored config override and restoring base config.', error);
-      localStorage.removeItem(this.overrideStorageKey);
-      return null;
-    }
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   }
 
   private assertValidConfig(config: AppConfigModel): void {
@@ -168,7 +114,6 @@ export class AppConfig {
     return JSON.parse(JSON.stringify(config)) as AppConfigModel;
   }
 
-<<<<<<< HEAD
   private mergeConfig(base: AppConfigModel, override: Partial<AppConfigModel>): AppConfigModel {
     return {
       ...base,
@@ -188,11 +133,6 @@ export class AppConfig {
     const normalized = this.cloneConfig(config);
     normalized.contact.leadEmail = normalized.contact.leadEmail ?? normalized.contact.email;
     normalized.content = normalized.content ?? {};
-=======
-  private normalizeConfig(config: AppConfigModel): AppConfigModel {
-    const normalized = this.cloneConfig(config);
-    normalized.contact.leadEmail = normalized.contact.leadEmail ?? normalized.contact.email;
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     normalized.homepage.banners = normalized.homepage.banners ?? [];
     normalized.homepage.posters = normalized.homepage.posters ?? [];
     normalized.homepage.videos = normalized.homepage.videos ?? [];
@@ -205,7 +145,6 @@ export class AppConfig {
     }
     return normalized;
   }
-<<<<<<< HEAD
 
   private applyConfig(config: AppConfigModel): void {
     const clonedConfig = this.cloneConfig(config);
@@ -237,8 +176,6 @@ export class AppConfig {
       return null;
     }
   }
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 }
 
 export function initializeAppConfig(appConfig: AppConfig): () => Promise<void> {

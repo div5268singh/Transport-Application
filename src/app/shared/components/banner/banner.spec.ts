@@ -14,10 +14,7 @@ describe('Banner', () => {
 
     fixture = TestBed.createComponent(Banner);
     component = fixture.componentInstance;
-<<<<<<< HEAD
     component.item = { title: 'Test', subtitle: 'Test', imagePath: '/test.jpg', ctaText: 'Test' };
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     fixture.detectChanges();
   });
 

@@ -1,9 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
-<<<<<<< HEAD
   AppConfigModel,
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   BannerContent,
   ClientItem,
   FeatureItem,
@@ -21,13 +18,9 @@ import { Seo } from '../../../core/services/seo';
   styleUrl: './home.css',
 })
 export class Home implements OnInit, OnDestroy {
-<<<<<<< HEAD
   protected readonly config: AppConfigModel;
   protected readonly appName: string;
   protected readonly contactPhone: string;
-=======
-  protected readonly appName: string;
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   protected readonly heroHeading: string;
   protected readonly heroSubheading: string;
   protected activeHeroIndex = 0;
@@ -45,13 +38,9 @@ export class Home implements OnInit, OnDestroy {
     private readonly seo: Seo,
   ) {
     const config = this.appConfig.getConfig();
-<<<<<<< HEAD
     this.config = config;
     this.appName = config.appName;
     this.contactPhone = config.contact.phone;
-=======
-    this.appName = config.appName;
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     this.heroHeading = config.homepage.heroHeading;
     this.heroSubheading = config.homepage.heroSubheading;
     this.banners = config.homepage.banners;
@@ -63,24 +52,15 @@ export class Home implements OnInit, OnDestroy {
       this.banners[0] ?? {
         title: this.heroHeading,
         subtitle: this.heroSubheading,
-<<<<<<< HEAD
         imagePath: '/uploads/home-hero-truck.jpg',
-=======
-        imagePath: 'assets/media/hero-1.svg',
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         ctaText: 'Read More',
       };
   }
 
   ngOnInit(): void {
     this.seo.setRouteMeta(
-<<<<<<< HEAD
       this.content('home.seoTitle'),
       this.content('home.seoDescription'),
-=======
-      'Heavy Industrial Trucking and Raw Material Logistics',
-      'Book reliable city-to-city transport for steel, iron, and high-tonnage factory raw materials with live fleet coordination.',
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     );
     this.startCarousel();
   }
@@ -100,13 +80,10 @@ export class Home implements OnInit, OnDestroy {
     this.activeHero = this.banners[index];
   }
 
-<<<<<<< HEAD
   protected content(key: string): string {
     return this.config.content[key] ?? '';
   }
 
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   private startCarousel(): void {
     if (this.banners.length < 2) {
       return;

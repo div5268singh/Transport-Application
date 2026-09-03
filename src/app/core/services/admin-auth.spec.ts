@@ -26,10 +26,7 @@ describe('AdminAuth', () => {
 
   afterEach(() => {
     httpTestingController.verify();
-<<<<<<< HEAD
     sessionStorage.clear();
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   });
 
   it('should be created', () => {
@@ -37,7 +34,6 @@ describe('AdminAuth', () => {
   });
 
   it('should authenticate via admin auth API', async () => {
-<<<<<<< HEAD
     const loginPromise = service.login('admin', 'secret-pass');
 
     const request = httpTestingController.expectOne('/test-admin-auth/login');
@@ -56,34 +52,13 @@ describe('AdminAuth', () => {
 
   it('should read auth status when a token is stored', async () => {
     sessionStorage.setItem('santa-road-admin-jwt', 'admin-jwt');
-=======
-    const loginPromise = service.login('secret-pass');
-
-    const request = httpTestingController.expectOne('/test-admin-auth/login');
-    expect(request.request.method).toBe('POST');
-    expect(request.request.body).toEqual({ password: 'secret-pass' });
-    expect(request.request.withCredentials).toBeTrue();
-    request.flush({ authenticated: true });
-
-    await expectAsync(loginPromise).toBeResolvedTo(true);
-  });
-
-  it('should read auth status from admin auth API', async () => {
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     const authPromise = service.isAuthenticated();
 
     const request = httpTestingController.expectOne('/test-admin-auth/session');
     expect(request.request.method).toBe('GET');
-<<<<<<< HEAD
     request.flush({ authenticated: true, username: 'admin' });
 
     await expectAsync(authPromise).toBeResolvedTo(true);
-=======
-    expect(request.request.withCredentials).toBeTrue();
-    request.flush({ authenticated: false });
-
-    await expectAsync(authPromise).toBeResolvedTo(false);
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   });
 
   it('should call logout endpoint', async () => {
@@ -91,10 +66,6 @@ describe('AdminAuth', () => {
 
     const request = httpTestingController.expectOne('/test-admin-auth/logout');
     expect(request.request.method).toBe('POST');
-<<<<<<< HEAD
-=======
-    expect(request.request.withCredentials).toBeTrue();
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     request.flush(null);
 
     await expectAsync(logoutPromise).toBeResolved();

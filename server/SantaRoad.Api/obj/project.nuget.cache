@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Wlt5Q8O2eo=",
+  "dgSpecHash": "hlXpthlo5KA=",
   "success": true,
-  "projectFilePath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\Santa Road\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
+  "projectFilePath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\divyanshus\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\divyanshus\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

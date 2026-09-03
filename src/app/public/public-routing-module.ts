@@ -5,10 +5,7 @@ import { Clients } from './pages/clients/clients';
 import { ContactUs } from './pages/contact-us/contact-us';
 import { Home } from './pages/home/home';
 import { Services } from './pages/services/services';
-<<<<<<< HEAD
 import { ShipmentTracking } from './pages/shipment-tracking/shipment-tracking';
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
 const routes: Routes = [
   {
@@ -31,7 +28,6 @@ const routes: Routes = [
     path: 'clients',
     component: Clients,
   },
-<<<<<<< HEAD
   {
     path: 'track',
     component: ShipmentTracking,
@@ -40,8 +36,6 @@ const routes: Routes = [
     path: 'track/:consignmentNumber',
     component: ShipmentTracking,
   },
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 ];
 
 @NgModule({

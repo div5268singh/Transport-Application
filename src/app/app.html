@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="site-shell">
   <div class="utility-bar">
     <div class="shell-width utility-bar__inner">
@@ -33,33 +32,13 @@
 
       <nav id="main-navigation" class="main-nav" [class.main-nav--open]="isNavigationOpen" [attr.aria-label]="'Main navigation'">
         <ul>
-=======
-<div class="min-h-screen bg-slate-50 text-slate-900">
-  <header class="sticky top-0 z-50 border-t-4 border-blue-600 bg-white shadow">
-    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-      <a routerLink="/" class="flex items-center gap-3">
-        <img [src]="appConfig.brand.logoPath" [alt]="appConfig.appName" class="h-10 w-10 rounded" />
-        <div>
-          <p class="text-xl font-bold text-slate-900">{{ appConfig.appName }}</p>
-          <p class="text-xs uppercase tracking-widest text-blue-600">Transportation Service Provider</p>
-        </div>
-      </a>
-
-      <nav aria-label="Main navigation">
-        <ul class="flex flex-wrap items-center gap-1 text-sm font-semibold">
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
           @for (link of navigationLinks; track link.path) {
             <li>
               <a
                 [routerLink]="link.path"
                 [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-<<<<<<< HEAD
                 routerLinkActive="is-active"
                 (click)="closeNavigation()"
-=======
-                routerLinkActive="bg-blue-600 text-white"
-                class="rounded px-3 py-2 text-slate-700 transition hover:bg-blue-50 hover:text-blue-700"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
               >
                 {{ link.label }}
               </a>
@@ -68,17 +47,9 @@
         </ul>
       </nav>
 
-<<<<<<< HEAD
       <a routerLink="/contact" class="header-quote">
         <span>{{ content('shell.quoteButton') }}</span>
         <b aria-hidden="true">&rarr;</b>
-=======
-      <a
-        [href]="'tel:' + appConfig.contact.phone"
-        class="hidden items-center gap-2 rounded bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-800 md:inline-flex"
-      >
-        <span class="text-blue-600">Call:</span> {{ appConfig.contact.phone }}
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       </a>
     </div>
   </header>
@@ -87,7 +58,6 @@
     <router-outlet></router-outlet>
   </main>
 
-<<<<<<< HEAD
   <footer class="site-footer">
     <div class="shell-width footer-grid">
       <section class="footer-intro">
@@ -102,32 +72,11 @@
           @for (link of navigationLinks; track link.path) {
             @if (link.path !== '/admin') {
               <li><a [routerLink]="link.path">{{ link.label }}</a></li>
-=======
-  <footer class="mt-16 bg-slate-900 text-slate-200">
-    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
-      <section>
-        <h2 class="text-xl font-bold text-white">{{ appConfig.appName }}</h2>
-        <p class="mt-3 text-sm leading-6">{{ appConfig.contact.address }}</p>
-        <p class="mt-2 text-sm">
-          <a [href]="'mailto:' + appConfig.contact.email" class="text-blue-300 hover:text-blue-200">{{
-            appConfig.contact.email
-          }}</a>
-        </p>
-      </section>
-
-      <section>
-        <h3 class="text-lg font-semibold text-white">Quick Links</h3>
-        <ul class="mt-3 space-y-2 text-sm">
-          @for (link of navigationLinks; track link.path) {
-            @if (link.path !== '/admin') {
-              <li><a [routerLink]="link.path" class="hover:text-blue-300">{{ link.label }}</a></li>
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
             }
           }
         </ul>
       </section>
 
-<<<<<<< HEAD
       <section class="footer-contact">
         <h3>{{ content('shell.footerContact') }}</h3>
         <p>{{ appConfig.contact.address }}</p>
@@ -138,21 +87,6 @@
     <div class="shell-width footer-bottom">
       <span>&copy; {{ currentYear }} {{ appConfig.appName }}</span>
       <span>{{ content('shell.footerStatement') }}</span>
-=======
-      <section>
-        <h3 class="text-lg font-semibold text-white">Dispatch Support</h3>
-        <p class="mt-3 text-sm leading-6">24/7 support for quote requests and industrial shipment planning.</p>
-        <a
-          routerLink="/contact"
-          class="mt-4 inline-flex rounded bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
-        >
-          Get Free Quote
-        </a>
-      </section>
-    </div>
-    <div class="border-t border-slate-700 py-4 text-center text-xs text-slate-400">
-      © {{ currentYear }} {{ appConfig.appName }}. All Rights Reserved.
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     </div>
   </footer>
 </div>
