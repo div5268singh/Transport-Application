@@ -77,10 +77,7 @@ export interface AppConfigModel {
   appName: string;
   brand: BrandConfig;
   contact: ContactDetails;
-<<<<<<< HEAD
   content: Record<string, string>;
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   seo: SeoConfig;
   homepage: HomePageConfig;
   about: AboutPageConfig;

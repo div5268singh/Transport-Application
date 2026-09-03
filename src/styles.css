@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
@@ -15,10 +14,6 @@
   --font-body: 'Manrope', sans-serif;
 }
 
-=======
-@import "tailwindcss";
-
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 html,
 body {
   min-height: 100%;
@@ -26,16 +21,10 @@ body {
 
 body {
   margin: 0;
-<<<<<<< HEAD
   font-family: var(--font-body);
   background: var(--paper);
   color: var(--ink);
   letter-spacing: 0;
-=======
-  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 }
 
 *,
@@ -43,7 +32,6 @@ body {
 *::after {
   box-sizing: border-box;
 }
-<<<<<<< HEAD
 
 button,
 a {
@@ -76,5 +64,3 @@ button {
   background: var(--signal);
   color: white;
 }
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e

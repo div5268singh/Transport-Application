@@ -1,23 +1,14 @@
 {
-<<<<<<< HEAD
   "appName": "New Satna Road Lines",
-=======
-  "appName": "New Satna Road Industrial Logistics",
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   "brand": {
     "logoPath": "assets/brand/logo.svg"
   },
   "contact": {
-<<<<<<< HEAD
     "phone": "+91-93106-91333",
-=======
-    "phone": "+91-73881-71078",
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     "email": "corp@santaroadlogistics.com",
     "leadEmail": "dispatch@santaroadlogistics.com",
     "address": "B-87, Industrial Yard Block, MB Road Corridor, New Delhi - 110044"
   },
-<<<<<<< HEAD
   "content": {
     "shell.utilityTagline": "Industrial freight, moving without pause.",
     "shell.brandName": "New Satna Road Lines",
@@ -111,39 +102,11 @@
         "subtitle": "From loading to final delivery, every movement is monitored for safety, timing, and clear communication.",
         "imagePath": "/uploads/service-heavy-machinery.jpg",
         "ctaText": "Contact us"
-=======
-  "seo": {
-    "defaultDescription": "Heavy industrial trucking company for city-to-city movement of steel, iron, machinery, and factory raw materials.",
-    "keywords": [
-      "heavy industrial trucking",
-      "steel transport logistics",
-      "bulk iron freight services",
-      "factory raw material transport",
-      "intercity flatbed truck booking"
-    ]
-  },
-  "homepage": {
-    "heroHeading": "No.1 Place for City-to-City Industrial Transportation Services",
-    "heroSubheading": "Trusted dispatch planning, high-capacity trailers, and on-time delivery for steel, iron, and factory raw material movement.",
-    "banners": [
-      {
-        "title": "Transportation Service Providers",
-        "subtitle": "Dedicated heavy truck operations with optimized intercity route planning and dispatch support.",
-        "imagePath": "assets/media/hero-1.svg",
-        "ctaText": "Read More"
-      },
-      {
-        "title": "No.1 Place for Your Transportation Services",
-        "subtitle": "Scalable trailer and flatbed deployments for bulk steel and iron freight consignments.",
-        "imagePath": "assets/media/hero-2.svg",
-        "ctaText": "Contact Us"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       }
     ],
     "posters": [
       {
         "title": "Road Transportation Service",
-<<<<<<< HEAD
         "summary": "Customized city-to-city logistics for industrial supply chains and B2B freight planning.",
         "imagePath": "/uploads/service-flatbed-loading.jpg"
       },
@@ -156,36 +119,17 @@
         "title": "Container Movement Services",
         "summary": "Schedule-controlled container pickup, repositioning, and intercity movement with secure handling.",
         "imagePath": "/uploads/service-heavy-machinery.jpg"
-=======
-        "summary": "Customized city-to-city logistics using owned trucks and partner mobility support.",
-        "imagePath": "assets/media/service-1.svg"
-      },
-      {
-        "title": "Trailer Transport Service",
-        "summary": "Heavy-duty trailer planning for over-dimension and high-tonnage freight loads.",
-        "imagePath": "assets/media/service-1.svg"
-      },
-      {
-        "title": "Container Movement Services",
-        "summary": "Domestic and intercity container repositioning with schedule-controlled dispatch.",
-        "imagePath": "assets/media/service-1.svg"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       }
     ],
     "videos": [
       {
         "title": "Fleet Dispatch and Loading Operations",
-<<<<<<< HEAD
         "summary": "A brief look at our loading workflow, dispatch planning, and road-ready industrial handling process.",
-=======
-        "summary": "A quick walkthrough of heavy truck dispatch workflow and cargo securement.",
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         "videoPath": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
       }
     ]
   },
   "about": {
-<<<<<<< HEAD
     "overview": "New Satna Road Lines is a growing transport and freight company focused on moving industrial materials with speed, safety, and consistency. Our team coordinates loading, dispatch, and route planning for steel, iron, machinery, and factory raw material movement across India. We work closely with production units, traders, and project supply chains to keep their shipments moving without disruption.",
     "operationalFootprint": [
       "24x7 dispatch support for intercity industrial freight movements.",
@@ -194,21 +138,12 @@
       "Short-haul and long-haul transport planning built around client deadlines and delivery windows.",
       "Monitoring, communication, and exception handling for critical freight updates.",
       "Flexible service coverage across major industrial corridors and high-demand freight lanes."
-=======
-    "overview": "Santa Road Industrial Logistics is one of the fastest growing transport companies focused on steel, iron, and bulk factory material movement. Our team combines dispatch expertise, yard-level coordination, and route-planned trucking to deliver reliable transportation support for B2B industrial clients.",
-    "operationalFootprint": [
-      "24x7 client support for intercity heavy freight planning and updates.",
-      "On-time and safe delivery process backed by trained operations teams.",
-      "Cost-effective movement plans for steel coils, iron sheets, and plant loads.",
-      "Large truck handling yard with loading support and monitored dispatch checks."
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     ]
   },
   "business": {
     "services": [
       {
         "title": "Road Transportation Service",
-<<<<<<< HEAD
         "summary": "Domestic industrial freight planning and on-time movement of bulk cargo, plant raw materials, and heavy consignments.",
         "imagePath": "/uploads/service-flatbed-loading.jpg"
       },
@@ -236,40 +171,10 @@
         "title": "Factory & Plant Logistics",
         "summary": "End-to-end movement support for manufacturing plants, warehouses, and industrial supply chains.",
         "imagePath": "/uploads/service-steel-coils.jpg"
-=======
-        "summary": "Customized transportation plans for domestic industrial supply routes.",
-        "imagePath": "assets/media/service-1.svg"
-      },
-      {
-        "title": "Trailer Transport Service",
-        "summary": "High-capacity trailer movement for heavy project cargo and factory materials.",
-        "imagePath": "assets/media/service-1.svg"
-      },
-      {
-        "title": "Over Dimension Transportation Service",
-        "summary": "Specialized operations for oversized equipment and heavy industrial modules.",
-        "imagePath": "assets/media/service-1.svg"
-      },
-      {
-        "title": "Container Movement Services",
-        "summary": "Container pickup, delivery, and intercity lane execution with schedule controls.",
-        "imagePath": "assets/media/service-1.svg"
-      },
-      {
-        "title": "Container Services",
-        "summary": "End-to-end handling support for import/export-linked container movement.",
-        "imagePath": "assets/media/service-1.svg"
-      },
-      {
-        "title": "Warehousing",
-        "summary": "Yard and warehousing coordination for temporary holding and material staging.",
-        "imagePath": "assets/media/service-1.svg"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       }
     ],
     "features": [
       {
-<<<<<<< HEAD
         "title": "Pan-India Fleet Coverage",
         "summary": "Flexible operations across major industrial hubs, factories, and transport corridors throughout India."
       },
@@ -284,18 +189,6 @@
       {
         "title": "24/7 Client Support",
         "summary": "Always-on contact for dispatch updates, ETA checks, and operational escalation support."
-=======
-        "title": "All India Services",
-        "summary": "Flexible operational footprint across major industrial corridors and connected routes."
-      },
-      {
-        "title": "On Time Delivery",
-        "summary": "Process-driven dispatch planning to meet strict industrial delivery windows."
-      },
-      {
-        "title": "24/7 Telephone Support",
-        "summary": "Always-on support line for dispatch updates, ETA checks, and escalation handling."
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       }
     ],
     "clients": [

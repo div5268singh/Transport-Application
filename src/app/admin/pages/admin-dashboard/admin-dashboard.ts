@@ -45,10 +45,7 @@ export class AdminDashboard implements OnInit {
   protected aboutOverview = '';
   protected seoDescription = '';
   protected seoKeywords = '';
-<<<<<<< HEAD
   protected pageSeoEntries: Array<{ label: string; titleKey: string; descriptionKey: string; title: string; description: string }> = [];
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
   protected banners: BannerContent[] = [];
   protected clients: ClientItem[] = [];
@@ -84,7 +81,6 @@ export class AdminDashboard implements OnInit {
   protected editingFeatureIndex = -1;
   protected editingFeatureTitle = '';
   protected editingFeatureSummary = '';
-<<<<<<< HEAD
   protected commitments: string[] = [];
   protected newCommitmentText = '';
   protected editingCommitmentIndex = -1;
@@ -99,8 +95,6 @@ export class AdminDashboard implements OnInit {
     { label: 'Contact', titleKey: 'contact.seoTitle', descriptionKey: 'contact.seoDescription' },
     { label: 'Track Shipment', titleKey: 'tracking.seoTitle', descriptionKey: 'tracking.seoDescription' },
   ];
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   protected newVideoTitle = '';
   protected newVideoSummary = '';
   protected newVideoPath = '';
@@ -347,14 +341,11 @@ export class AdminDashboard implements OnInit {
   }
 
   removeBanner(index: number): void {
-<<<<<<< HEAD
     if (this.banners.length <= 1) {
       this.contentStatus = 'At least one banner must remain. Add a replacement before removing this one.';
       return;
     }
 
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     const nextConfig = this.appConfigService.getEditableConfig();
     nextConfig.homepage.banners.splice(index, 1);
     if (this.editingBannerIndex === index) {
@@ -461,14 +452,11 @@ export class AdminDashboard implements OnInit {
   }
 
   removeClient(index: number): void {
-<<<<<<< HEAD
     if (this.clients.length <= 1) {
       this.contentStatus = 'At least one client must remain. Add a replacement before removing this one.';
       return;
     }
 
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     const nextConfig = this.appConfigService.getEditableConfig();
     nextConfig.business.clients.splice(index, 1);
     if (this.editingClientIndex === index) {
@@ -533,14 +521,11 @@ export class AdminDashboard implements OnInit {
   }
 
   removeService(index: number): void {
-<<<<<<< HEAD
     if (this.services.length <= 1) {
       this.contentStatus = 'At least one service must remain. Add a replacement before removing this one.';
       return;
     }
 
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     const nextConfig = this.appConfigService.getEditableConfig();
     nextConfig.business.services.splice(index, 1);
     if (this.editingServiceIndex === index) {
@@ -606,14 +591,11 @@ export class AdminDashboard implements OnInit {
   }
 
   removeFeature(index: number): void {
-<<<<<<< HEAD
     if (this.features.length <= 1) {
       this.contentStatus = 'At least one feature must remain. Add a replacement before removing this one.';
       return;
     }
 
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     const nextConfig = this.appConfigService.getEditableConfig();
     nextConfig.business.features.splice(index, 1);
     if (this.editingFeatureIndex === index) {
@@ -659,7 +641,6 @@ export class AdminDashboard implements OnInit {
     this.editingFeatureSummary = '';
   }
 
-<<<<<<< HEAD
   addCommitment(): void {
     if (!this.newCommitmentText.trim()) {
       this.contentStatus = 'Commitment text is required.';
@@ -718,8 +699,6 @@ export class AdminDashboard implements OnInit {
     this.editingCommitmentText = '';
   }
 
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   addVideo(): void {
     if (!this.newVideoTitle.trim() || !this.newVideoSummary.trim() || !this.newVideoPath.trim()) {
       this.contentStatus = 'Video title, description, and video URL/path are required.';
@@ -741,14 +720,11 @@ export class AdminDashboard implements OnInit {
   }
 
   removeVideo(index: number): void {
-<<<<<<< HEAD
     if (this.videos.length <= 1) {
       this.contentStatus = 'At least one video must remain. Add a replacement before removing this one.';
       return;
     }
 
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     const nextConfig = this.appConfigService.getEditableConfig();
     nextConfig.homepage.videos.splice(index, 1);
     if (this.editingVideoIndex === index) {
@@ -801,7 +777,6 @@ export class AdminDashboard implements OnInit {
     this.editingVideoPosterPath = '';
   }
 
-<<<<<<< HEAD
   savePageSeo(index: number): void {
     const entry = this.pageSeoEntries[index];
     if (!entry) {
@@ -827,13 +802,6 @@ export class AdminDashboard implements OnInit {
     } catch {
       this.contentStatus = 'Could not reset content right now. Please try again.';
     }
-=======
-  resetContentToDefault(): void {
-    this.appConfigService.clearConfigOverride();
-    this.refreshConfigState();
-    this.previewBannerIndex = 0;
-    this.contentStatus = 'Content reset to default configuration.';
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   }
 
   async logout(): Promise<void> {
@@ -862,7 +830,6 @@ export class AdminDashboard implements OnInit {
   }
 
   private persist(nextConfig: AppConfigModel, successMessage: string): void {
-<<<<<<< HEAD
     this.appConfigService
       .saveConfigOverride(nextConfig)
       .then(() => {
@@ -872,11 +839,6 @@ export class AdminDashboard implements OnInit {
       .catch(() => {
         this.contentStatus = 'Could not save content to the server. Please try again.';
       });
-=======
-    this.appConfigService.saveConfigOverride(nextConfig);
-    this.refreshConfigState();
-    this.contentStatus = successMessage;
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
   }
 
   private refreshAssets(): void {
@@ -899,23 +861,17 @@ export class AdminDashboard implements OnInit {
     this.aboutOverview = this.appConfig.about.overview;
     this.seoDescription = this.appConfig.seo.defaultDescription;
     this.seoKeywords = this.appConfig.seo.keywords.join(', ');
-<<<<<<< HEAD
     this.pageSeoEntries = AdminDashboard.pageSeoFields.map((field) => ({
       ...field,
       title: this.appConfig.content[field.titleKey] ?? '',
       description: this.appConfig.content[field.descriptionKey] ?? '',
     }));
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     this.banners = [...this.appConfig.homepage.banners];
     this.clients = [...this.appConfig.business.clients];
     this.services = [...this.appConfig.business.services];
     this.features = [...this.appConfig.business.features];
     this.videos = [...this.appConfig.homepage.videos];
-<<<<<<< HEAD
     this.commitments = [...this.appConfig.about.operationalFootprint];
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     this.refreshLeadRequests();
   }
 }

@@ -16,22 +16,11 @@ interface NavigationLink {
 export class App {
   protected readonly appConfig: AppConfigModel;
   protected readonly currentYear = new Date().getFullYear();
-<<<<<<< HEAD
   protected isNavigationOpen = false;
-=======
-  protected readonly navigationLinks: NavigationLink[] = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/services', label: 'Services' },
-    { path: '/clients', label: 'Our Clients' },
-    { path: '/contact', label: 'Contact' },
-  ];
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 
   constructor(appConfigService: AppConfig) {
     this.appConfig = appConfigService.getConfig();
   }
-<<<<<<< HEAD
 
   protected get navigationLinks(): NavigationLink[] {
     return [
@@ -55,6 +44,4 @@ export class App {
   protected closeNavigation(): void {
     this.isNavigationOpen = false;
   }
-=======
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
 }

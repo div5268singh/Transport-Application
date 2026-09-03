@@ -15,94 +15,56 @@
 
   <article class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2">
     <h2 class="text-xl font-bold text-slate-900">Send Message / Free Quote</h2>
-<<<<<<< HEAD
     <p class="mt-2 text-sm text-slate-600">{{ content('contact.formIntro') }}</p>
     <p class="mt-1 text-xs text-slate-500">
       {{ content('contact.formHelp') }} <strong>{{ leadEmail }}</strong>.
-=======
-    <p class="mt-2 text-sm text-slate-600">Share your load details and receive callback from dispatch support.</p>
-    <p class="mt-1 text-xs text-slate-500">
-      On submit, your email app opens with all lead details addressed to <strong>{{ leadEmail }}</strong>.
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
     </p>
 
     <form [formGroup]="leadForm" (ngSubmit)="onSubmit()" class="mt-6 grid gap-4 md:grid-cols-2">
       <input
         type="text"
         formControlName="userName"
-<<<<<<< HEAD
         [placeholder]="'Your Name'"
-=======
-        placeholder="Your Name"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
       />
       <input
         type="tel"
         formControlName="phone"
-<<<<<<< HEAD
         [placeholder]="'Your Phone'"
-=======
-        placeholder="Your Phone"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
       />
       <input
         type="email"
         formControlName="email"
-<<<<<<< HEAD
         [placeholder]="'Your Email'"
-=======
-        placeholder="Your Email"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
       />
       <input
         type="text"
         formControlName="materialType"
-<<<<<<< HEAD
         [placeholder]="'Material Type'"
-=======
-        placeholder="Material Type"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
       />
       <input
         type="text"
         formControlName="origin"
-<<<<<<< HEAD
         [placeholder]="'Origin'"
-=======
-        placeholder="Origin"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
       />
       <input
         type="text"
         formControlName="destination"
-<<<<<<< HEAD
         [placeholder]="'Destination'"
-=======
-        placeholder="Destination"
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
         class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
       />
       <input
         type="text"
         formControlName="weight"
-<<<<<<< HEAD
         [placeholder]="'Weight (e.g. 24 tonnes)'"
         class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none md:col-span-2"
       />
       <button type="submit" class="rounded bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700 md:col-span-2">
         {{ content('contact.submitButton') }}
-=======
-        placeholder="Weight (e.g. 24 tonnes)"
-        class="rounded border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none md:col-span-2"
-      />
-      <button type="submit" class="rounded bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700 md:col-span-2">
-        Send Message
->>>>>>> e4b4c23502783af1c220ace4be71d05d63e14c8e
       </button>
     </form>
 

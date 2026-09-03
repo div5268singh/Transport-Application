@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\Santa Road\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {}
+    "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {}
   },
   "projects": {
-    "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\Santa Road\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {
+    "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\Santa Road\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
+        "projectUniqueName": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
         "projectName": "satnaLogistics",
-        "projectPath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\Santa Road\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
+        "projectPath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
         "packagesPath": "C:\\Users\\divyanshus\\.nuget\\packages\\",
-        "outputPath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\Santa Road\\santa-road\\server\\SantaRoad.Api\\obj\\",
+        "outputPath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
