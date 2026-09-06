@@ -8,7 +8,7 @@
       allowfullscreen
     ></iframe>
   } @else {
-    <video class="video-card__media" controls [src]="item.videoPath" [attr.poster]="item.posterPath || null">
+    <video class="video-card__media" controls [appMediaSrc]="item.videoPath" [mediaPoster]="item.posterPath">
       {{ content('shared.videoFallback') }}
     </video>
   }

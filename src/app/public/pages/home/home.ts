@@ -52,7 +52,7 @@ export class Home implements OnInit, OnDestroy {
       this.banners[0] ?? {
         title: this.heroHeading,
         subtitle: this.heroSubheading,
-        imagePath: '/uploads/home-hero-truck.jpg',
+        imagePath: '/api/media/home-hero-truck',
         ctaText: 'Read More',
       };
   }

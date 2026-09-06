@@ -15,7 +15,7 @@
 
   @if (previewBanner) {
     <section class="mt-8 overflow-hidden rounded-2xl border border-slate-800">
-      <div class="relative h-[360px] bg-cover bg-center" [style.background-image]="'url(' + previewBanner.imagePath + ')'">
+      <div class="relative h-[360px] bg-cover bg-center" [appMediaSrc]="previewBanner.imagePath" mediaTarget="background-image">
         <div class="absolute inset-0 bg-slate-950/55"></div>
         <div class="absolute inset-0 flex items-center p-8">
           <div class="max-w-3xl text-white">

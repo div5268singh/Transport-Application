@@ -12,9 +12,18 @@ export interface MediaUploadResponse {
   fileName: string;
 }
 
+export interface MediaItem {
+  url: string;
+  fileName: string;
+  sizeInBytes: number;
+  contentType: string;
+  updatedAt: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class ContentService {
   private readonly base = '/api/content';
+  private readonly mediaBase = '/api/media';
 
   constructor(private readonly http: HttpClient) {}
 
@@ -28,11 +37,19 @@ export class ContentService {
     return this.http.put<SiteContentResponse>(this.base, { jsonData });
   }
 
-  // Replaces StorageSimulator's base64/localStorage upload — returns a
-  // real /uploads/... URL to store in a banner/service/video field.
+  // Returns an opaque /api/media/{id} URL to store in a banner/service/video field.
   uploadMedia(file: File): Observable<MediaUploadResponse> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<MediaUploadResponse>(`${this.base}/media`, formData);
+    return this.http.post<MediaUploadResponse>(this.mediaBase, formData);
+  }
+
+  // Everything already uploaded to the API server's media folder.
+  listMedia(): Observable<MediaItem[]> {
+    return this.http.get<MediaItem[]>(this.mediaBase);
+  }
+
+  deleteMedia(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.mediaBase}/${encodeURIComponent(id)}`);
   }
 }

@@ -1,6 +1,6 @@
 <article class="service-card">
   <div class="service-card__media">
-    <img [src]="item.imagePath" [alt]="item.title" />
+    <img [appMediaSrc]="item.imagePath" [alt]="item.title" />
   </div>
   <div class="service-card__body">
     <span class="service-card__number">0{{ item.title.length % 6 + 1 }}</span>
