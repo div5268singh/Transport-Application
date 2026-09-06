@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>satnaLogistics</name>
+    </assembly>
+    <members>
+        <member name="T:SantaRoad.Api.Controllers.MediaController">
+            <summary>
+            Images and videos live on this server. They are addressed by an opaque id
+            with no file name, extension or storage path in the URL.
+            </summary>
+        </member>
+        <member name="M:SantaRoad.Api.Extensions.ServiceCollectionExtensions.AddApiDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>Registers the OpenAPI document that both Scalar and Swagger UI render.</summary>
+        </member>
+        <member name="M:SantaRoad.Api.Extensions.WebApplicationExtensions.UseStaticContent(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>Serves wwwroot. Uploaded media is not static - it goes through MediaController.</summary>
+        </member>
+        <member name="M:SantaRoad.Api.Extensions.WebApplicationExtensions.MapApiDocumentation(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>OpenAPI document plus both UIs, available in every environment.</summary>
+        </member>
+        <member name="T:SantaRoad.Api.Migrations.AddSiteContent">
+            <inheritdoc />
+        </member>
+        <member name="M:SantaRoad.Api.Migrations.AddSiteContent.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SantaRoad.Api.Migrations.AddSiteContent.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SantaRoad.Api.Migrations.AddSiteContent.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SantaRoad.Api.Migrations.AddAdminProfileFields">
+            <inheritdoc />
+        </member>
+        <member name="M:SantaRoad.Api.Migrations.AddAdminProfileFields.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SantaRoad.Api.Migrations.AddAdminProfileFields.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SantaRoad.Api.Migrations.AddAdminProfileFields.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SantaRoad.Api.Services.MediaStorageService">
+            <summary>
+            Resolves where uploaded images/videos are stored on the API server and
+            maps opaque ids to files so no storage path is ever exposed to the browser.
+            </summary>
+        </member>
+        <member name="M:SantaRoad.Api.Services.MediaStorageService.HasMatchingSignatureAsync(System.IO.Stream,System.String)">
+            <summary>Rejects files whose bytes do not match their declared extension.</summary>
+        </member>
+        <member name="M:SantaRoad.Api.Services.MediaStorageService.FindById(System.String)">
+            <summary>Finds the stored file for an opaque id, or null when the id is unknown or unsafe.</summary>
+        </member>
+        <member name="M:SantaRoad.Api.Startup.DatabaseInitializer.InitializeDatabaseAsync(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>Applies migrations, then seeds the admin user and default site content.</summary>
+        </member>
+        <member name="T:SantaRoad.Api.Startup.SiteContentMerger">
+            <summary>
+            Merge helpers that keep a stored site-content document in sync with the
+            bundled defaults without discarding admin edits.
+            </summary>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Type)">
+            <summary>
+            Generates a documentation comment ID for a type.
+            Example: T:Namespace.Outer+Inner`1 becomes T:Namespace.Outer.Inner`1
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Reflection.PropertyInfo)">
+            <summary>
+            Generates a documentation comment ID for a property.
+            Example: P:Namespace.ContainingType.PropertyName or for an indexer P:Namespace.ContainingType.Item(System.Int32)
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Type,System.String)">
+            <summary>
+            Generates a documentation comment ID for a property given its container type and property name.
+            Example: P:Namespace.ContainingType.PropertyName
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Reflection.MethodInfo)">
+            <summary>
+            Generates a documentation comment ID for a method (or constructor).
+            For example:
+              M:Namespace.ContainingType.MethodName(ParamType1,ParamType2)~ReturnType
+              M:Namespace.ContainingType.#ctor(ParamType)
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.GetTypeDocId(System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            Generates a documentation ID string for a type.
+            This method handles nested types (replacing '+' with '.'),
+            generic types, arrays, pointers, by-ref types, and generic parameters.
+            The <paramref name="includeGenericArguments"/> flag controls whether
+            constructed generic type arguments are emitted, while <paramref name="omitGenericArity"/>
+            controls whether the generic arity marker (e.g. "`1") is appended.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.NormalizeDocId(System.String)">
+            <summary>
+            Normalizes a documentation comment ID to match the compiler-style format.
+            Strips the return type suffix for ordinary methods but retains it for conversion operators.
+            </summary>
+            <param name="docId">The documentation comment ID to normalize.</param>
+            <returns>The normalized documentation comment ID.</returns>
+        </member>
+    </members>
+</doc>

@@ -4,14 +4,14 @@ import { RouterModule } from '@angular/router';
 import { Banner } from './components/banner/banner';
 import { PosterCard } from './components/poster-card/poster-card';
 import { VideoPlayer } from './components/video-player/video-player';
-
-
+import { MediaSrcDirective } from './directives/media-src.directive';
 
 @NgModule({
   declarations: [
     Banner,
     PosterCard,
-    VideoPlayer
+    VideoPlayer,
+    MediaSrcDirective
   ],
   imports: [
     CommonModule,
@@ -21,6 +21,7 @@ import { VideoPlayer } from './components/video-player/video-player';
     Banner,
     PosterCard,
     VideoPlayer,
+    MediaSrcDirective,
   ],
 })
 export class SharedModule { }

@@ -35,7 +35,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "ignore": [
+                  "**/*_old*.*",
+                  "**/favicon(1).ico",
+                  "assets/uploads/**",
+                  "uploads/**"
+                ]
               }
             ],
             "styles": [

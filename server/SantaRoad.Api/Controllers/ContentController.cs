@@ -11,12 +11,10 @@ namespace SantaRoad.Api.Controllers;
 public class ContentController : ControllerBase
 {
     private readonly ISantaRoadStore _store;
-    private readonly IWebHostEnvironment _env;
 
-    public ContentController(ISantaRoadStore store, IWebHostEnvironment env)
+    public ContentController(ISantaRoadStore store)
     {
         _store = store;
-        _env = env;
     }
 
     // Public: the marketing site reads current content on every page load.
@@ -61,40 +59,5 @@ public class ContentController : ControllerBase
         await _store.SaveSiteContentAsync(row);
 
         return Ok(new SiteContentResponse(row.JsonData, row.UpdatedAt));
-    }
-
-    // Admin only: real file upload, replacing the old base64-in-localStorage
-    // StorageSimulator. Saves under wwwroot/uploads and returns a URL the
-    // frontend can drop straight into app.config.json banner/service/video
-    // fields.
-    [HttpPost("media")]
-    [Authorize(Roles = "Admin")]
-    [RequestSizeLimit(50_000_000)]
-    public async Task<ActionResult<MediaUploadResponse>> UploadMedia(IFormFile file)
-    {
-        if (file is null || file.Length == 0)
-        {
-            return BadRequest(new { message = "No file received." });
-        }
-
-        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".webp", ".gif", ".mp4", ".webm" };
-        var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
-        if (!allowedExtensions.Contains(ext))
-        {
-            return BadRequest(new { message = $"File type {ext} is not allowed." });
-        }
-
-        var uploadsRoot = Path.Combine(_env.WebRootPath ?? _env.ContentRootPath, "uploads");
-        Directory.CreateDirectory(uploadsRoot);
-
-        var safeName = $"{Guid.NewGuid():N}{ext}";
-        var fullPath = Path.Combine(uploadsRoot, safeName);
-
-        await using (var stream = System.IO.File.Create(fullPath))
-        {
-            await file.CopyToAsync(stream);
-        }
-
-        return Ok(new MediaUploadResponse($"/uploads/{safeName}", safeName));
     }
 }

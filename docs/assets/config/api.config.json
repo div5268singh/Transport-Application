@@ -1,0 +1,4 @@
+{
+  "//": "Change apiBaseUrl to point the site at a different .NET API without rebuilding Angular. Must be https when the site is served over https (GitHub Pages), otherwise the browser blocks it as mixed content. Leave empty when the API also serves this site.",
+  "apiBaseUrl": "https://satnaroadlinesapi.runasp.net"
+}

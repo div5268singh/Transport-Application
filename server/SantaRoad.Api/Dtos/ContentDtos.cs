@@ -8,3 +8,10 @@ public record SiteContentResponse(string JsonData, DateTime UpdatedAt);
 public record UpdateSiteContentRequest(string JsonData);
 
 public record MediaUploadResponse(string Url, string FileName);
+
+public record MediaItemResponse(
+    string Url,
+    string FileName,
+    long SizeInBytes,
+    string ContentType,
+    DateTime UpdatedAt);

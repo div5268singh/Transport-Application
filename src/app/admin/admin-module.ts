@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing-module';
+import { SharedModule } from '../shared/shared-module';
 import { AdminLogin } from './pages/admin-login/admin-login';
 import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
 import { ConsignmentList } from './pages/consignment-list/consignment-list';
@@ -22,7 +23,8 @@ import { ConsignmentDetail } from './pages/consignment-detail/consignment-detail
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

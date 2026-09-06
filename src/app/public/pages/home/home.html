@@ -1,6 +1,6 @@
 @if (activeHero) {
   <section class="hero">
-    <img [src]="activeHero.imagePath" [alt]="activeHero.title" class="hero__image" />
+    <img [appMediaSrc]="activeHero.imagePath" [alt]="activeHero.title" class="hero__image" />
     <div class="hero__shade"></div>
     <div class="content-width hero__content">
       <p class="hero__eyebrow"><span></span>{{ activeHero.title }}</p>

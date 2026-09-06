@@ -1,0 +1,7 @@
+wwwroot\uploads\about-warehouse-workers.jpg
+wwwroot\uploads\home-hero-convoy.jpg
+wwwroot\uploads\home-hero-truck.jpg
+wwwroot\uploads\service-flatbed-loading.jpg
+wwwroot\uploads\service-heavy-machinery.jpg
+wwwroot\uploads\service-steel-coils.jpg
+..\..\public\assets\config\app.config.json
