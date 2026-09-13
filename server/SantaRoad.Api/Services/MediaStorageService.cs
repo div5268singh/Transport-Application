@@ -27,11 +27,9 @@ public class MediaStorageService
     {
         var configured = configuration["Media:RootPath"]?.Trim();
 
-        // Relative paths resolve from the app directory, which is where the
-        // seed imagery is copied and which equals the content root once published.
-        RootPath = Path.GetFullPath(
-            string.IsNullOrWhiteSpace(configured) ? Path.Combine("App_Data", "media") : configured,
-            AppContext.BaseDirectory);
+        // Support ASP.NET-style "~/" roots and resolve all relative paths
+        // from the app content root so deployment folders behave predictably.
+        RootPath = ResolveRootPath(configured, env.ContentRootPath);
 
         Directory.CreateDirectory(RootPath);
     }
@@ -82,4 +80,27 @@ public class MediaStorageService
         ContentTypes.TryGetContentType(fileName, out var contentType)
             ? contentType
             : "application/octet-stream";
+
+    private static string ResolveRootPath(string? configured, string contentRootPath)
+    {
+        if (string.IsNullOrWhiteSpace(configured))
+        {
+            return Path.GetFullPath(Path.Combine(contentRootPath, "App_Data", "media"));
+        }
+
+        if (configured.StartsWith("~/", StringComparison.Ordinal))
+        {
+            var relativeFromRoot = configured[2..]
+                .Replace('/', Path.DirectorySeparatorChar)
+                .Replace('\\', Path.DirectorySeparatorChar);
+            return Path.GetFullPath(Path.Combine(contentRootPath, relativeFromRoot));
+        }
+
+        if (Path.IsPathRooted(configured))
+        {
+            return Path.GetFullPath(configured);
+        }
+
+        return Path.GetFullPath(Path.Combine(contentRootPath, configured));
+    }
 }

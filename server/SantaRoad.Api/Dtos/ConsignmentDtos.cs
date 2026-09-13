@@ -1,30 +1,32 @@
+using System.ComponentModel.DataAnnotations;
 using SantaRoad.Api.Models;
 
 namespace SantaRoad.Api.Dtos;
 
 public record PartyDto(
-    string CompanyName,
-    string ContactPerson1Name,
-    string ContactPerson1Phone,
-    string ContactPerson2Name,
-    string ContactPerson2Phone,
-    string Email,
-    string Address
+    [property: Required, StringLength(120, MinimumLength = 2)] string CompanyName,
+    [property: Required, StringLength(100, MinimumLength = 2)] string ContactPerson1Name,
+    [property: Required, RegularExpression(@"^[0-9+\-()\s]{7,20}$")] string ContactPerson1Phone,
+    [property: Required, StringLength(100, MinimumLength = 2)] string ContactPerson2Name,
+    [property: Required, RegularExpression(@"^[0-9+\-()\s]{7,20}$")] string ContactPerson2Phone,
+    [property: Required, EmailAddress, StringLength(256)] string Email,
+    [property: Required, StringLength(300, MinimumLength = 5)] string Address
 );
 
 public record BillingDto(
-    decimal OrderPrice,
-    decimal ReceivedAmount,
-    string BalancePaymentMode,
-    string BalancePaymentNotes
+    [property: Range(0, 999999999)] decimal OrderPrice,
+    [property: Range(0, 999999999)] decimal ReceivedAmount,
+    [property: Required, StringLength(60, MinimumLength = 2)] string BalancePaymentMode,
+    [property: Required, StringLength(500, MinimumLength = 2)] string BalancePaymentNotes
 );
 
 public record DriverDetailsDto(
-    string VehicleNumber,
-    string DriverName,
-    string DriverContactNo,
-    string SecondContactNo,
-    string OwnerContactNo
+    [property: Required, StringLength(40, MinimumLength = 3)] string VehicleNumber,
+    [property: Required, StringLength(100, MinimumLength = 2)] string DriverName,
+    [property: Required, RegularExpression(@"^[0-9+\-()\s]{7,20}$")] string DriverContactNo,
+    [property: Required, RegularExpression(@"^[0-9+\-()\s]{7,20}$")] string SecondContactNo,
+    [property: Required, RegularExpression(@"^[0-9+\-()\s]{7,20}$")] string OwnerContactNo,
+    [property: Required, EmailAddress, StringLength(256)] string DriverEmail
 );
 
 // Admin -> POST /api/consignments
@@ -80,9 +82,12 @@ public record DriverConsignmentDto(
     DriverDetailsDto Driver
 );
 
-public record DriverLocationRequest(string CityName, string AreaName);
+public record DriverLocationRequest(
+    [property: Required, StringLength(120, MinimumLength = 2)] string CityName,
+    [property: Required, StringLength(120, MinimumLength = 2)] string StateName
+);
 
-public record TrackingUpdateDto(string CityName, string AreaName, DateTime UpdatedAt);
+public record TrackingUpdateDto(string CityName, string StateName, DateTime UpdatedAt);
 
 // Public -> GET /api/tracking/{number} (no billing, no credentials)
 public record PublicTrackingDto(

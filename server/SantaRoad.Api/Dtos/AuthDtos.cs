@@ -1,6 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SantaRoad.Api.Dtos;
 
-public record AdminLoginRequest(string Username, string Password);
+public record AdminLoginRequest(
+	[property: Required, StringLength(120, MinimumLength = 2)] string Username,
+	[property: Required, StringLength(200, MinimumLength = 4)] string Password);
 public record AdminLoginResponse(
 	string Token,
 	DateTime ExpiresAt,
@@ -17,5 +21,7 @@ public record AdminSessionResponse(
 	string ContactNumber,
 	string Designation);
 
-public record DriverLoginRequest(string Username, string Password);
+public record DriverLoginRequest(
+	[property: Required, StringLength(120, MinimumLength = 2)] string Username,
+	[property: Required, StringLength(200, MinimumLength = 4)] string Password);
 public record DriverLoginResponse(string Token, DateTime ExpiresAt, string ConsignmentNumber);

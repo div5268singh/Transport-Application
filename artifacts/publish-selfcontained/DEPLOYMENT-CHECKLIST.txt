@@ -1,0 +1,32 @@
+SELF-CONTAINED API DEPLOYMENT CHECKLIST (MonsterASP / IIS)
+
+1) Upload all files from this folder to site root:
+   D:\Sites\site89316\wwwroot\
+
+2) Ensure these files exist on server root after upload:
+   - satnaLogistics.exe
+   - satnaLogistics.dll
+   - web.config
+   - appsettings.json
+   - App_Data\media\ (folder)
+   - logs\ (folder)
+
+3) In appsettings.json, verify values:
+   - ConnectionStrings:SqlServer is valid
+   - Jwt:Key is set (32+ chars)
+   - Media:RootPath is App_Data/media
+   - Frontend:BaseUrl is your public API URL
+   - Cors:AllowedOrigins includes your frontend domain
+
+4) Restart application from hosting panel.
+
+5) Test health endpoint:
+   /health
+
+6) If site fails to start:
+   - Open logs\stdout*.log
+   - Share first 80 lines for diagnosis
+
+7) After stable startup:
+   - Set stdoutLogEnabled="false" in web.config
+     (to avoid log growth on disk)

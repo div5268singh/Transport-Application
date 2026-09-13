@@ -12,7 +12,7 @@
       <h2 class="mb-3 text-lg font-semibold">Sender</h2>
       <div class="grid gap-3 md:grid-cols-2" formGroupName="sender">
         <input formControlName="companyName" placeholder="Company name" class="rounded border border-slate-300 px-3 py-2" />
-        <input formControlName="email" placeholder="Email" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="email" type="email" placeholder="Email" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="contactPerson1Name" placeholder="Contact person 1 name" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="contactPerson1Phone" placeholder="Contact person 1 phone" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="contactPerson2Name" placeholder="Contact person 2 name" class="rounded border border-slate-300 px-3 py-2" />
@@ -25,7 +25,7 @@
       <h2 class="mb-3 text-lg font-semibold">Receiver</h2>
       <div class="grid gap-3 md:grid-cols-2" formGroupName="receiver">
         <input formControlName="companyName" placeholder="Company name" class="rounded border border-slate-300 px-3 py-2" />
-        <input formControlName="email" placeholder="Email" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="email" type="email" placeholder="Email" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="contactPerson1Name" placeholder="Contact person 1 name" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="contactPerson1Phone" placeholder="Contact person 1 phone" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="contactPerson2Name" placeholder="Contact person 2 name" class="rounded border border-slate-300 px-3 py-2" />
@@ -51,7 +51,8 @@
         <input formControlName="driverName" placeholder="Driver name" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="driverContactNo" placeholder="Driver contact" class="rounded border border-slate-300 px-3 py-2" />
         <input formControlName="secondContactNo" placeholder="Second contact" class="rounded border border-slate-300 px-3 py-2" />
-        <input formControlName="ownerContactNo" placeholder="Owner contact" class="rounded border border-slate-300 px-3 py-2 md:col-span-2" />
+        <input formControlName="ownerContactNo" placeholder="Owner contact" class="rounded border border-slate-300 px-3 py-2" />
+        <input formControlName="driverEmail" type="email" placeholder="Driver email" class="rounded border border-slate-300 px-3 py-2" />
       </div>
     </article>
 

@@ -27,6 +27,7 @@ export interface DriverDetailsDto {
   driverContactNo: string;
   secondContactNo: string;
   ownerContactNo: string;
+  driverEmail: string;
 }
 
 export interface CreateConsignmentRequest {
@@ -55,7 +56,7 @@ export interface ConsignmentSummary {
 
 export interface TrackingUpdateDto {
   cityName: string;
-  areaName: string;
+  stateName: string;
   updatedAt: string;
 }
 
@@ -80,6 +81,30 @@ export interface PublicTracking {
   vehicleNumber: string;
   driverName: string;
   history: TrackingUpdateDto[];
+}
+
+export interface DriverLoginRequest {
+  username: string;
+  password: string;
+}
+
+export interface DriverLoginResponse {
+  token: string;
+  expiresAt: string;
+  consignmentNumber: string;
+}
+
+export interface DriverConsignment {
+  consignmentNumber: string;
+  status: ConsignmentStatus;
+  sender: PartyDto;
+  receiver: PartyDto;
+  driver: DriverDetailsDto;
+}
+
+export interface DriverLocationRequest {
+  cityName: string;
+  stateName: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -116,5 +141,17 @@ export class ConsignmentService {
 
   track(consignmentNumber: string): Observable<PublicTracking> {
     return this.http.get<PublicTracking>(`/api/tracking/${consignmentNumber}`);
+  }
+
+  driverLogin(request: DriverLoginRequest): Observable<DriverLoginResponse> {
+    return this.http.post<DriverLoginResponse>('/api/driver/login', request);
+  }
+
+  driverConsignment(): Observable<DriverConsignment> {
+    return this.http.get<DriverConsignment>('/api/driver/consignment');
+  }
+
+  postDriverLocation(request: DriverLocationRequest): Observable<void> {
+    return this.http.post<void>('/api/driver/location', request);
   }
 }

@@ -57,14 +57,15 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\CollegeManagement.Application\" />
+  </ItemGroup>
+
   <!-- EntityFrameworkCore.Design drags ~4 MB of MSBuild/Roslyn build hosts and
        the XML doc file is only needed at compile time by the OpenAPI generator. -->
   <Target Name="TrimDesignTimeArtifacts" AfterTargets="ComputeResolvedFilesToPublishList">
     <ItemGroup>
-      <ResolvedFileToPublish
-        Remove="@(ResolvedFileToPublish)"
-        Condition="$([System.String]::Copy('%(ResolvedFileToPublish.RelativePath)').StartsWith('BuildHost-'))
-                   Or '%(ResolvedFileToPublish.RelativePath)' == '$(AssemblyName).xml'" />
+      <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="$([System.String]::Copy('%(ResolvedFileToPublish.RelativePath)').StartsWith('BuildHost-'))&#xD;&#xA;                   Or '%(ResolvedFileToPublish.RelativePath)' == '$(AssemblyName).xml'" />
     </ItemGroup>
   </Target>
 </Project>

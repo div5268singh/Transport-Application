@@ -34,9 +34,9 @@ public class DriverController : ControllerBase
             return Unauthorized(new { message = "Invalid username or password." });
         }
 
-        if (assignment.CredentialsExpired)
+        if (IsDriverAccessExpired(consignment))
         {
-            return StatusCode(403, new { message = "This delivery is complete. Access has ended." });
+            return StatusCode(403, new { message = "Driver access expired after delivery completion." });
         }
 
         if (consignment is null) return Unauthorized(new { message = "Invalid username or password." });
@@ -55,9 +55,9 @@ public class DriverController : ControllerBase
 
         if (c is null) return NotFound();
 
-        if (c.DriverAssignment.CredentialsExpired)
+        if (IsDriverAccessExpired(c))
         {
-            return StatusCode(403, new { message = "This delivery is complete. Access has ended." });
+            return StatusCode(403, new { message = "Driver access expired after delivery completion." });
         }
 
         // Deliberately built without touching c.Billing at all — billing
@@ -71,7 +71,8 @@ public class DriverController : ControllerBase
             new PartyDto(c.Receiver.CompanyName, c.Receiver.ContactPerson1Name, c.Receiver.ContactPerson1Phone,
                 c.Receiver.ContactPerson2Name, c.Receiver.ContactPerson2Phone, c.Receiver.Email, c.Receiver.Address),
             new DriverDetailsDto(c.DriverAssignment.VehicleNumber, c.DriverAssignment.DriverName,
-                c.DriverAssignment.DriverContactNo, c.DriverAssignment.SecondContactNo, c.DriverAssignment.OwnerContactNo)
+                c.DriverAssignment.DriverContactNo, c.DriverAssignment.SecondContactNo, c.DriverAssignment.OwnerContactNo,
+                c.DriverAssignment.DriverEmail)
         );
 
         return Ok(dto);
@@ -87,16 +88,22 @@ public class DriverController : ControllerBase
         if (consignment is null) return NotFound();
         var assignment = consignment.DriverAssignment;
 
-        if (assignment.CredentialsExpired)
+        if (IsDriverAccessExpired(consignment))
         {
-            return StatusCode(403, new { message = "This delivery is complete. Access has ended." });
+            return StatusCode(403, new { message = "Driver access expired after delivery completion." });
+        }
+
+        // Driver can only post city/state after pickup starts.
+        if (consignment.Status == ConsignmentStatus.Created)
+        {
+            return BadRequest(new { message = "Location updates are allowed only after consignment is picked up." });
         }
 
         consignment.TrackingUpdates.Add(new TrackingUpdate
         {
             ConsignmentId = consignmentId,
             CityName = request.CityName,
-            AreaName = request.AreaName,
+            AreaName = request.StateName,
             UpdatedAt = DateTime.UtcNow,
         });
 
@@ -108,5 +115,26 @@ public class DriverController : ControllerBase
     {
         var claim = User.FindFirst("consignmentId")?.Value;
         return int.Parse(claim ?? "0");
+    }
+
+    private static bool IsDriverAccessExpired(Consignment? consignment)
+    {
+        if (consignment is null)
+        {
+            return true;
+        }
+
+        if (consignment.DriverAssignment.CredentialsExpired)
+        {
+            return true;
+        }
+
+        if (consignment.Status != ConsignmentStatus.Delivered || consignment.DeliveredAt is null)
+        {
+            return false;
+        }
+
+        var expiresAt = consignment.DeliveredAt.Value.Date.AddDays(1);
+        return DateTime.UtcNow >= expiresAt;
     }
 }

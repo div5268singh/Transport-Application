@@ -18,7 +18,14 @@ public static class ServiceCollectionExtensions
         var connectionString = configuration.GetConnectionString("SqlServer")?.Trim();
         if (string.IsNullOrWhiteSpace(connectionString))
         {
-            throw new InvalidOperationException("ConnectionStrings:SqlServer must be configured.");
+            // Backward compatibility for older deployments still using
+            // ConnectionStrings:SantaRoadDb.
+            connectionString = configuration.GetConnectionString("SantaRoadDb")?.Trim();
+        }
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            throw new InvalidOperationException("A SQL Server connection string must be configured in ConnectionStrings:SqlServer (or legacy ConnectionStrings:SantaRoadDb).");
         }
 
         services.AddDbContext<SantaRoadDbContext>(options =>
@@ -154,6 +161,8 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<JwtTokenService>();
         services.AddScoped<CredentialGeneratorService>();
+        services.AddScoped<ConsignmentNotificationService>();
+        services.AddScoped<IEmailSender, SmtpEmailSender>();
         services.AddSingleton<MediaStorageService>();
 
         return services;

@@ -1,6 +1,16 @@
 {
   "runtimeOptions": {
     "tfm": "net10.0",
+<<<<<<< HEAD
+    "includedFrameworks": [
+      {
+        "name": "Microsoft.NETCore.App",
+        "version": "10.0.8"
+      },
+      {
+        "name": "Microsoft.AspNetCore.App",
+        "version": "10.0.8"
+=======
     "frameworks": [
       {
         "name": "Microsoft.NETCore.App",
@@ -9,6 +19,7 @@
       {
         "name": "Microsoft.AspNetCore.App",
         "version": "10.0.0"
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281
       }
     ],
     "configProperties": {

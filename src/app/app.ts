@@ -28,6 +28,7 @@ export class App {
       { path: '/about', label: this.content('shell.nav.about') },
       { path: '/services', label: this.content('shell.nav.services') },
       { path: '/track', label: this.content('shell.nav.tracking') },
+      { path: '/driver/login', label: 'Driver Login' },
       { path: '/clients', label: this.content('shell.nav.clients') },
       { path: '/contact', label: this.content('shell.nav.contact') },
     ];

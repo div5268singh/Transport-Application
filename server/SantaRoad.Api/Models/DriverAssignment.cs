@@ -10,6 +10,7 @@ public class DriverAssignment
     public string DriverContactNo { get; set; } = string.Empty;
     public string SecondContactNo { get; set; } = string.Empty;
     public string OwnerContactNo { get; set; } = string.Empty;
+    public string DriverEmail { get; set; } = string.Empty;
     public string Username { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;
     public bool CredentialsExpired { get; set; } = false;

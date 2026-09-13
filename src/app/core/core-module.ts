@@ -5,13 +5,14 @@ import { AppConfig, initializeAppConfig } from './services/app-config';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { adminAuthInterceptor } from './services/admin-auth-interceptor';
 import { apiBaseUrlInterceptor } from './services/api-base-url-interceptor';
+import { driverAuthInterceptor } from './services/driver-auth-interceptor';
 import { ApiEndpoint, initializeApiEndpoint } from './services/api-endpoint';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
   providers: [
-    provideHttpClient(withInterceptors([apiBaseUrlInterceptor, adminAuthInterceptor])),
+    provideHttpClient(withInterceptors([apiBaseUrlInterceptor, adminAuthInterceptor, driverAuthInterceptor])),
     // The API origin must resolve before any config or content request is made.
     {
       provide: APP_INITIALIZER,

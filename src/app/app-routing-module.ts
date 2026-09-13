@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin-module').then((m) => m.AdminModule),
   },
   {
+    path: 'driver',
+    loadChildren: () => import('./driver/driver.routes').then((m) => m.DRIVER_ROUTES),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

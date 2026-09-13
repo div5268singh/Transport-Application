@@ -16,12 +16,18 @@ public class ConsignmentsController : ControllerBase
     private readonly ISantaRoadStore _store;
     private readonly CredentialGeneratorService _credentials;
     private readonly IConfiguration _config;
+    private readonly ConsignmentNotificationService _notifications;
 
-    public ConsignmentsController(ISantaRoadStore store, CredentialGeneratorService credentials, IConfiguration config)
+    public ConsignmentsController(
+        ISantaRoadStore store,
+        CredentialGeneratorService credentials,
+        IConfiguration config,
+        ConsignmentNotificationService notifications)
     {
         _store = store;
         _credentials = credentials;
         _config = config;
+        _notifications = notifications;
     }
 
     [HttpPost]
@@ -60,6 +66,7 @@ public class ConsignmentsController : ControllerBase
             DriverContactNo = request.Driver.DriverContactNo,
             SecondContactNo = request.Driver.SecondContactNo,
             OwnerContactNo = request.Driver.OwnerContactNo,
+            DriverEmail = request.Driver.DriverEmail,
             Username = driverUsername,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(plaintextPassword),
             CredentialsExpired = false,
@@ -89,6 +96,8 @@ public class ConsignmentsController : ControllerBase
 
         var frontendBase = _config["Frontend:BaseUrl"] ?? "http://localhost:4200";
         var trackingLink = $"{frontendBase}/track/{consignment.ConsignmentNumber}";
+
+        await _notifications.SendCreatedAsync(consignment, trackingLink, driverUsername, plaintextPassword);
 
         return Ok(new CreateConsignmentResponse(
             consignment.Id,
@@ -164,6 +173,7 @@ public class ConsignmentsController : ControllerBase
         c.DriverAssignment.DriverContactNo = request.Driver.DriverContactNo;
         c.DriverAssignment.SecondContactNo = request.Driver.SecondContactNo;
         c.DriverAssignment.OwnerContactNo = request.Driver.OwnerContactNo;
+        c.DriverAssignment.DriverEmail = request.Driver.DriverEmail;
 
         await _store.SaveConsignmentAsync(c);
         return Ok(MapToDetail(c));
@@ -176,14 +186,20 @@ public class ConsignmentsController : ControllerBase
 
         if (c is null) return NotFound();
 
+        var wasDelivered = c.Status == ConsignmentStatus.Delivered;
         c.Status = request.Status;
         if (request.Status == ConsignmentStatus.Delivered)
         {
-            c.DeliveredAt = DateTime.UtcNow;
-            c.DriverAssignment.CredentialsExpired = true;
+            c.DeliveredAt ??= DateTime.UtcNow;
         }
 
         await _store.SaveConsignmentAsync(c);
+
+        if (!wasDelivered && request.Status == ConsignmentStatus.Delivered)
+        {
+            await _notifications.SendDeliveredAsync(c);
+        }
+
         return NoContent();
     }
 
@@ -210,7 +226,8 @@ public class ConsignmentsController : ControllerBase
             c.Receiver.ContactPerson2Name, c.Receiver.ContactPerson2Phone, c.Receiver.Email, c.Receiver.Address),
         new BillingDto(c.Billing.OrderPrice, c.Billing.ReceivedAmount, c.Billing.BalancePaymentMode, c.Billing.BalancePaymentNotes),
         new DriverDetailsDto(c.DriverAssignment.VehicleNumber, c.DriverAssignment.DriverName,
-            c.DriverAssignment.DriverContactNo, c.DriverAssignment.SecondContactNo, c.DriverAssignment.OwnerContactNo),
+            c.DriverAssignment.DriverContactNo, c.DriverAssignment.SecondContactNo, c.DriverAssignment.OwnerContactNo,
+            c.DriverAssignment.DriverEmail),
         c.TrackingUpdates
             .OrderBy(t => t.UpdatedAt)
             .Select(t => new TrackingUpdateDto(t.CityName, t.AreaName, t.UpdatedAt))
