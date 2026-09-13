@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {}
+    "C:\\Projects\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {}
   },
   "projects": {
-    "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {
+    "C:\\Projects\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
+        "projectUniqueName": "C:\\Projects\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
         "projectName": "satnaLogistics",
-        "projectPath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
-        "packagesPath": "C:\\Users\\divyanshus\\.nuget\\packages\\",
-        "outputPath": "D:\\divyanshu\\Divyanshus Test application\\Angular Project\\santa-road\\server\\SantaRoad.Api\\obj\\",
+        "projectPath": "C:\\Projects\\santa-road\\server\\SantaRoad.Api\\SantaRoad.Api.csproj",
+        "packagesPath": "C:\\Users\\AIR\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\santa-road\\server\\SantaRoad.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\divyanshus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AIR\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
@@ -110,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -525,11 +525,6 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }
