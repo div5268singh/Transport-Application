@@ -148,4 +148,7 @@ D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\Santa
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Debug\net10.0\App_Data\media\service-flatbed-loading.jpg
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Debug\net10.0\App_Data\media\service-heavy-machinery.jpg
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Debug\net10.0\App_Data\media\service-steel-coils.jpg
+<<<<<<< HEAD
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Debug\net10.0\dotnet-tools.json
+=======
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281

@@ -16,14 +16,19 @@
           "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": "10.0.0",
           "Microsoft.OpenApi": "2.12.2",
           "Scalar.AspNetCore": "2.10.0",
+<<<<<<< HEAD
           "Swashbuckle.AspNetCore.SwaggerUI": "10.0.0",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "10.0.8",
           "runtimepack.Microsoft.AspNetCore.App.Runtime.win-x64": "10.0.8"
+=======
+          "Swashbuckle.AspNetCore.SwaggerUI": "10.0.0"
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281
         },
         "runtime": {
           "satnaLogistics.dll": {}
         }
       },
+<<<<<<< HEAD
       "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.8": {
         "runtime": {
           "Microsoft.CSharp.dll": {
@@ -1340,6 +1345,8 @@
           }
         }
       },
+=======
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281
       "Azure.Core/1.47.1": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
@@ -1667,6 +1674,7 @@
       "serviceable": false,
       "sha512": ""
     },
+<<<<<<< HEAD
     "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.8": {
       "type": "runtimepack",
       "serviceable": false,
@@ -1677,6 +1685,8 @@
       "serviceable": false,
       "sha512": ""
     },
+=======
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281
     "Azure.Core/1.47.1": {
       "type": "package",
       "serviceable": true,
@@ -1894,6 +1904,7 @@
       "path": "system.security.cryptography.protecteddata/9.0.4",
       "hashPath": "system.security.cryptography.protecteddata.9.0.4.nupkg.sha512"
     }
+<<<<<<< HEAD
   },
   "runtimes": {
     "win-x64": [
@@ -1901,5 +1912,7 @@
       "any",
       "base"
     ]
+=======
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281
   }
 }

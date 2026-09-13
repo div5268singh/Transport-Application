@@ -141,6 +141,7 @@ D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\Santa
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\App_Data\media\service-flatbed-loading.jpg
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\App_Data\media\service-heavy-machinery.jpg
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\App_Data\media\service-steel-coils.jpg
+<<<<<<< HEAD
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\dotnet-tools.json
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\Microsoft.CSharp.dll
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\Microsoft.VisualBasic.Core.dll
@@ -472,3 +473,5 @@ D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\Santa
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\mscorrc.dll
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\msquic.dll
 D:\divyanshu\Divyanshus Test application\Angular Project\santa-road\server\SantaRoad.Api\bin\Release\net10.0\win-x64\aspnetcorev2_inprocess.dll
+=======
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281

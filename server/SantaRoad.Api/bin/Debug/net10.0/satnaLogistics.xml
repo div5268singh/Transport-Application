@@ -14,7 +14,11 @@
             <summary>Registers the OpenAPI document that both Scalar and Swagger UI render.</summary>
         </member>
         <member name="M:SantaRoad.Api.Extensions.WebApplicationExtensions.UseStaticContent(Microsoft.AspNetCore.Builder.WebApplication)">
+<<<<<<< HEAD
             <summary>Serves wwwroot when present. Uploaded media is not static - it goes through MediaController.</summary>
+=======
+            <summary>Serves wwwroot. Uploaded media is not static - it goes through MediaController.</summary>
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281
         </member>
         <member name="M:SantaRoad.Api.Extensions.WebApplicationExtensions.MapApiDocumentation(Microsoft.AspNetCore.Builder.WebApplication)">
             <summary>OpenAPI document plus both UIs, available in every environment.</summary>
@@ -43,6 +47,7 @@
         <member name="M:SantaRoad.Api.Migrations.AddAdminProfileFields.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+<<<<<<< HEAD
         <member name="T:SantaRoad.Api.Migrations.AddDriverEmail">
             <inheritdoc />
         </member>
@@ -55,6 +60,8 @@
         <member name="M:SantaRoad.Api.Migrations.AddDriverEmail.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+=======
+>>>>>>> dfaa501478d44455e7cafd812a79935a86041281
         <member name="T:SantaRoad.Api.Services.MediaStorageService">
             <summary>
             Resolves where uploaded images/videos are stored on the API server and
