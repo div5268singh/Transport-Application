@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>satnaLogistics</AssemblyName>
+    <Product>satnaLogistics</Product>
+    <Title>satnaLogistics</Title>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- Microsoft.Data.SqlClient does not support globalization-invariant mode. -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <!-- Required by Microsoft.AspNetCore.OpenApi to describe controller actions. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <!-- Publish-size controls: one RID only, no symbols, no localized resources. -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <PublishReadyToRun>false</PublishReadyToRun>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.0" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.10.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.0.0" />
+    <!-- Transitive pin: Microsoft.OpenApi 2.0.0-2.2.0 have a known high-severity advisory. -->
+    <PackageReference Include="Microsoft.OpenApi" Version="2.12.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json" CopyToPublishDirectory="Never" />
+    <!-- Admin-uploaded media lives on the API server only; never ship the local
+         copy or a deploy sync will churn/overwrite it. -->
+    <Content Update="App_Data\media\**" CopyToPublishDirectory="Never" />
+    <!-- Default site content used the first time the database is seeded. -->
+    <Content Include="..\..\public\assets\config\app.config.json" Link="Seed\app.config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <!-- Stock imagery the default content refers to, so a fresh server renders
+         before the admin uploads anything. -->
+    <Content Include="..\..\public\uploads\**\*" Link="App_Data\media\%(RecursiveDir)%(Filename)%(Extension)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\CollegeManagement.Application\" />
+  </ItemGroup>
+
+  <!-- EntityFrameworkCore.Design drags ~4 MB of MSBuild/Roslyn build hosts and
+       the XML doc file is only needed at compile time by the OpenAPI generator. -->
+  <Target Name="TrimDesignTimeArtifacts" AfterTargets="ComputeResolvedFilesToPublishList">
+    <ItemGroup>
+      <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="$([System.String]::Copy('%(ResolvedFileToPublish.RelativePath)').StartsWith('BuildHost-'))&#xD;&#xA;                   Or '%(ResolvedFileToPublish.RelativePath)' == '$(AssemblyName).xml'" />
+    </ItemGroup>
+  </Target>
+</Project>

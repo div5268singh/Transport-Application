@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <rect x="60" y="120" width="1080" height="460" rx="18" fill="#1e293b"/>
+  <rect x="100" y="300" width="300" height="120" rx="12" fill="#1d4ed8"/>
+  <circle cx="240" cy="500" r="52" fill="#0b1220"/>
+  <circle cx="560" cy="500" r="52" fill="#0b1220"/>
+  <text x="460" y="330" fill="#ffffff" font-family="Arial, sans-serif" font-size="48" font-weight="700">Transport Service</text>
+</svg>
